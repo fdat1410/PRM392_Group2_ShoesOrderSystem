@@ -27,7 +27,7 @@ public class ManagePageFragmentSellerManagement extends Fragment {
     private Button btnCreateSeller, btnNext, btnPrevious;
     private List<Account> sellerList;
     private int currentPage = 0;
-    private static final int PAGE_SIZE = 4;
+    private static final int PAGE_SIZE = 2;
     private TextView txtPageNumber;
 
     @Nullable
@@ -44,7 +44,7 @@ public class ManagePageFragmentSellerManagement extends Fragment {
         accountRepository = new AccountRepository(requireContext());
         sellerList = accountRepository.ViewListAccountSeller();
 
-        adapter = new AccountSellerAdapter(getCurrentPageData());
+        adapter = new AccountSellerAdapter(getCurrentPageData(), requireContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
 
@@ -84,6 +84,6 @@ public class ManagePageFragmentSellerManagement extends Fragment {
     private void updateRecyclerView() {
         adapter.updateData(getCurrentPageData());
         updateButtonVisibility();
-        txtPageNumber.setText(String.valueOf(currentPage + 1)); // Cập nhật số trang
+        txtPageNumber.setText(String.valueOf(currentPage + 1));
     }
 }

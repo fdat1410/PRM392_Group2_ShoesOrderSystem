@@ -27,10 +27,34 @@
         android:layout_height="wrap_content"
         android:text="Phone Number" />
 
+    <TextView
+        android:id="@+id/txtDob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dob" />
+
+    <TextView
+        android:id="@+id/txtGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gender" />
+
+    <TextView
+        android:id="@+id/txtAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address" />
+
+    <TextView
+        android:id="@+id/txtStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="end"> <!-- Đẩy nút về bên phải -->
+        android:gravity="end">
 
         <Button
             android:id="@+id/btnChangeStatus"
