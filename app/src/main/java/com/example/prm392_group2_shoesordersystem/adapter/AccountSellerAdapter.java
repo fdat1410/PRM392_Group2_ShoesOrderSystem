@@ -68,20 +68,22 @@ public class AccountSellerAdapter extends RecyclerView.Adapter<AccountSellerAdap
         Account seller = sellerList.get(position);
         holder.txtSellerName.setText(seller.getFullname());
         holder.txtSellerEmail.setText(seller.getEmail());
+
+        holder.txtDob.setText(seller.getDob());
+        if (seller.getGender() == 0) {
+            holder.txtGender.setText("Female");
+
+        } else {
+            holder.txtGender.setText("Male");
+
+        }
+
         if (seller.acc_status == 0) {
             holder.txtStatus.setText("Unactive");
             holder.txtStatus.setTextColor(Color.RED);
         } else {
             holder.txtStatus.setText("Active");
             holder.txtStatus.setTextColor(Color.GREEN);
-        }
-        holder.txtDob.setText(seller.getDob());
-        if (seller.getGender() == 0) {
-            holder.txtStatus.setText("Female");
-
-        } else {
-            holder.txtStatus.setText("Male");
-
         }
         holder.txtAddress.setText(seller.getAddress());
 

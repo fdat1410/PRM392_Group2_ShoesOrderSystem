@@ -24,7 +24,6 @@ public class AccountRepository {
         return accountDao.ViewListAccountSeller();
     }
 
-
     public void changeSellerAccountStatus(int accountId, int accStatus) {
         executorService.execute(() -> accountDao.changeSellerAccountStatus(accStatus, accountId));
     }
