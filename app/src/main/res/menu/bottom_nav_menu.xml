@@ -3,13 +3,14 @@
     <item
         android:id="@+id/nav_home"
         android:icon="@drawable/baseline_home_24"
-        android:title="Home" />
+        android:title="Home"/>
     <item
         android:id="@+id/nav_seller_management"
         android:icon="@drawable/baseline_groups_24"
-        android:title="Seller Management" />
+        android:title="Seller Management"/>
     <item
         android:id="@+id/nav_profile"
         android:icon="@drawable/baseline_account_circle_24"
         android:title="Profile"/>
 </menu>
+

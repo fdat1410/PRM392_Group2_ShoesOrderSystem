@@ -13,7 +13,7 @@
         android:theme="@style/Theme.PRM392_Group2_ShoesOrderSystem"
         tools:targetApi="31">
         <activity
-            android:name="com.example.prm392_group2_shoesordersystem.ManagePageActivity"
+            android:name="com.example.prm392_group2_shoesordersystem.activity.ManagePageActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
