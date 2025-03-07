@@ -43,8 +43,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="text"
-        android:hint="Enter Price" />
+        android:hint="Enter Price"
+        android:inputType="number" />
 
     <TextView
         android:id="@+id/textView6"
@@ -58,6 +58,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
+        android:maxLines="5"
         android:hint="Enter Description" />
 
     <TextView
@@ -98,49 +99,14 @@
         android:text="Category" />
 
     <Spinner
-        android:id="@+id/category"
+        android:id="@+id/spinnerCategory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Size" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <CheckBox
-            android:id="@+id/cbSize38"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="38" />
-
-        <CheckBox
-            android:id="@+id/cbSize39"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="39" />
-
-        <CheckBox
-            android:id="@+id/cbSize40"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="40" />
-
-        <CheckBox
-            android:id="@+id/cbSize41"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="41" />
-    </LinearLayout>
 
     <Button
         android:id="@+id/btnAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add" />
+
 </LinearLayout>

@@ -11,9 +11,6 @@ import java.util.List;
 @Dao
 public interface ShoesDAO {
     @Insert
-    long insertShoe(Shoes shoe);
-
-    @Insert
-    void insertSizes(List<Size> sizes);
+    void insertShoe(Shoes shoe);
 }
 

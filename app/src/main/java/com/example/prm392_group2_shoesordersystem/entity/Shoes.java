@@ -16,4 +16,18 @@ public class Shoes {
     public String create_by;
     public String update_by;
     public int category_id;
+
+    public Shoes(double price, String img, String description, String shoes_name, int shoes_status, String create_by, String update_by, int category_id) {
+        this.price = price;
+        this.img = img;
+        this.description = description;
+        this.shoes_name = shoes_name;
+        this.shoes_status = shoes_status;
+        this.create_by = create_by;
+        this.update_by = update_by;
+        this.category_id = category_id;
+    }
+    public Shoes() {
+    }
+
 }
