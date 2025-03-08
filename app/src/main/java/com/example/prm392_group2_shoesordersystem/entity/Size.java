@@ -11,4 +11,11 @@ public class Size {
     public int size;
     public int quantity;
     public int shoe_id;
+    public Size(int size, int quantity, int shoe_id) {
+        this.size = size;
+        this.quantity = quantity;
+        this.shoe_id = shoe_id;
+    }
+    public Size() {
+    }
 }

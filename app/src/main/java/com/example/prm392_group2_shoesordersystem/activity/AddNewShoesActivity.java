@@ -18,15 +18,21 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
+import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.prm392_group2_shoesordersystem.R;
 import com.example.prm392_group2_shoesordersystem.entity.Category;
 import com.example.prm392_group2_shoesordersystem.entity.Shoes;
+import com.example.prm392_group2_shoesordersystem.entity.Size;
 import com.example.prm392_group2_shoesordersystem.repository.CategoryRepository;
 import com.example.prm392_group2_shoesordersystem.repository.ShoesRepository;
+import com.example.prm392_group2_shoesordersystem.repository.SizeRepository;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -40,6 +46,7 @@ public class AddNewShoesActivity extends AppCompatActivity {
     private ImageView imgUpload;
     private ShoesRepository shoesRepository;
     private CategoryRepository categoryRepository;
+    private SizeRepository sizeRepository;
     private static final int PICK_IMAGE_REQUEST = 1;
     private String selectedImageUri;
     private String imgPath;
@@ -63,8 +70,9 @@ public class AddNewShoesActivity extends AppCompatActivity {
         imgUpload = findViewById(R.id.imgUpload);
         btnUpload = findViewById(R.id.btnUpload);
         categoryRepository = new CategoryRepository(this);
+        sizeRepository = new SizeRepository(this);
         List<Category> categories = categoryRepository.getAllCategories();
-        // Chuyển danh sách Category thành danh sách tên danh mục
+        // get category name of list category
         List<String> categoryNames = new ArrayList<>();
         for (Category category : categories) {
             categoryNames.add(category.category_name);
@@ -91,7 +99,7 @@ public class AddNewShoesActivity extends AppCompatActivity {
                 shoes.price = Double.parseDouble(price_string);
                 shoes.description = edtDescription.getText().toString();
                 shoes.img = selectedImageUri;
-                // Lấy category_id từ Spinner dựa trên vị trí được chọn
+                // get id from position
                 int selectedPosition = spinnerCategory.getSelectedItemPosition();
                 if (selectedPosition >= 0 && selectedPosition < categories.size()) {
                     shoes.category_id = categories.get(selectedPosition).category_id;
@@ -100,11 +108,10 @@ public class AddNewShoesActivity extends AppCompatActivity {
                 shoes.create_by = null;
                 shoes.update_by = null;
                 addShoesToDatabase(shoes);
-
             }
         });
     }
-    // Mở thư viện ảnh
+    // open file chooser
     private void openFileChooser() {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
@@ -135,10 +142,15 @@ public class AddNewShoesActivity extends AppCompatActivity {
     // Add shoes with ShoesRepository
     private void addShoesToDatabase(Shoes shoes) {
         try {
-            shoesRepository.insertShoe(shoes);
+            Shoes shoesId = shoesRepository.insertShoes(shoes);
+            int shoes_id = Integer.parseInt(String.valueOf(shoesId.shoes_id));
+            for (int i = 36; i < 44; i++) {
+                sizeRepository.insertSize(new Size(i, 0, shoes_id));
+            }
             Toast.makeText(this, "Add Shoes Successfully!", Toast.LENGTH_SHORT).show();
         }catch (Exception e){
             Toast.makeText(this, "Add Shoes Failed!", Toast.LENGTH_SHORT).show();
         }
+
     }
 }

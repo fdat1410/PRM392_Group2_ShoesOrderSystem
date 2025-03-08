@@ -13,17 +13,20 @@
         android:theme="@style/Theme.PRM392_Group2_ShoesOrderSystem"
         tools:targetApi="31">
         <activity
-            android:name=".activity.ViewOrderListActivity"
-            android:label="Order List"
+            android:name=".activity.SellerDashboardActivity"
             android:exported="true" />
+        <activity
+            android:name=".activity.ViewOrderListActivity"
+            android:exported="true"
+            android:label="Order List" />
         <activity
             android:name=".activity.UpdateShoesInformationActivity"
-            android:label="Update Shoes Information"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Update Shoes Information" />
         <activity
             android:name=".activity.AddNewShoesActivity"
-            android:label="Add New Shoes"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Add New Shoes" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
