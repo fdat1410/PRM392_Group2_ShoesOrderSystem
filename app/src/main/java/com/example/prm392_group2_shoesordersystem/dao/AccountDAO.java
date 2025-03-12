@@ -19,5 +19,13 @@ public interface AccountDAO {
     void changeSellerAccountStatus(int accStatus, int accountId);
 
 
+    @Query("SELECT * FROM Account WHERE email = :email AND password = :password")
+    Account login(String email, String password);
+
+    @Query("SELECT * FROM Account WHERE email = :email")
+    Account checkExistAccount(String email);
+
+
+
 
 }
