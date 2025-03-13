@@ -10,4 +10,12 @@
 
     <string name="menu_home">Home</string>
     <string name="menu_cart">Cart</string>
+
+    <string-array name="roles" translatable="true">
+        <item>Customer</item>
+        <item>Admin</item>
+        <item>Manager</item>
+        <item>Seller</item>
+    </string-array>
+
 </resources>

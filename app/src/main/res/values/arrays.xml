@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categories_array">
+        <item>Sneakers</item>
+        <item>Running Shoes</item>
+        <item>Formal Shoes</item>
+        <item>Sandals</item>
+        <item>Boots</item>
+        <item>Loafers</item>
+        <item>High Heels</item>
+        <item>Flip Flops</item>
+        <item>Hiking Shoes</item>
+        <item>Slip-ons</item>
+    </string-array>
+</resources>
