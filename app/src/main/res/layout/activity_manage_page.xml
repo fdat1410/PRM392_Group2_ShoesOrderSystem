@@ -12,11 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- Toolbar -->
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:background="#f1e9f7"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:layout_constraintEnd_toEndOf="parent"
@@ -26,6 +26,28 @@
             app:title="Manager Page"
             app:titleTextColor="#040303" />
 
+
+<!--        <com.google.android.material.appbar.AppBarLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:theme="@style/Theme.PRM392_Group2_ShoesOrderSystem.AppBarOverlay"-->
+<!--            tools:ignore="MissingConstraints">-->
+
+<!--            <androidx.appcompat.widget.Toolbar-->
+<!--                android:id="@+id/toolbar"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="?attr/actionBarSize"-->
+<!--                android:background="#f1e9f7"-->
+<!--                app:popupTheme="@style/Theme.PRM392_Group2_ShoesOrderSystem.PopupOverlay"-->
+<!--                app:title="Manager Page"-->
+<!--                app:titleTextColor="#090808"-->
+<!--                app:navigationIcon="@drawable/baseline_density_medium_24"-->
+<!--                />-->
+
+<!--        </com.google.android.material.appbar.AppBarLayout>-->
+
+
+
         <!-- Đây là nơi Fragment sẽ thay đổi -->
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragment_container"
@@ -34,7 +56,8 @@
             app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="NotSibling" />
 
 
 
@@ -54,11 +77,11 @@
 
     <!-- Navigation Drawer -->
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigation_view"
+        android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@android:color/white"
-        app:menu="@menu/drawer_menu"
-        app:headerLayout="@layout/drawer_header"/>
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/drawer_header"
+        app:menu="@menu/activity_main_drawer" />
 </androidx.drawerlayout.widget.DrawerLayout>

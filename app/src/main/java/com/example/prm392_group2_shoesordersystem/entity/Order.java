@@ -4,6 +4,8 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
+import java.sql.Date;
+
 @Entity(tableName = "Order", foreignKeys = @ForeignKey(entity = Account.class, parentColumns = "account_id", childColumns = "account_id", onDelete = ForeignKey.CASCADE))
 public class Order {
     @PrimaryKey(autoGenerate = true)

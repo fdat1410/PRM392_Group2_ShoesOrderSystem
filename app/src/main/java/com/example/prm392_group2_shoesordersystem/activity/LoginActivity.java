@@ -86,17 +86,20 @@ public class LoginActivity extends AppCompatActivity {
             runOnUiThread(() -> {
                 if (account != null) {
                     int accountRole = account.getRole();
+                    int accountStatus = account.getAcc_status();
+
+                    if (accountStatus == 0) {
+                        Toast.makeText(this, "Your account has been blocked!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
                     if (selectedRoleIndex != accountRole) {
                         Toast.makeText(this, "Role mismatch! Please select the correct role.", Toast.LENGTH_SHORT).show();
                         return;
                     }
 
-
                     Gson gson = new Gson();
                     String accountJson = gson.toJson(account);
-
-
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putString("USER_ACCOUNT", accountJson);
@@ -105,22 +108,14 @@ public class LoginActivity extends AppCompatActivity {
 
                     Intent intent = null;
                     switch (accountRole) {
-//                        case 0: // Customer
-//                            intent = new Intent(LoginActivity.this, CustomerHomeActivity.class);
-//                            break;
-//                        case 1: // Admin
-//                            intent = new Intent(LoginActivity.this, AdminDashboardActivity.class);
-//                            break;
                         case 2: // Manager
                             intent = new Intent(LoginActivity.this, ManagePageActivity.class);
                             break;
-//                        case 3: // Seller
-//                            intent = new Intent(LoginActivity.this, SellerDashboardActivity.class);
-//                            break;
                         default:
                             Toast.makeText(this, "Invalid role selected!", Toast.LENGTH_SHORT).show();
                             return;
                     }
+
                     intent.putExtra("ROLE", roleArray[accountRole]);
                     startActivity(intent);
                     finish();
@@ -131,5 +126,6 @@ public class LoginActivity extends AppCompatActivity {
             });
         }).start();
     }
+
 
 }

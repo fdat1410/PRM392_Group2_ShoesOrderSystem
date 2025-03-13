@@ -1,6 +1,7 @@
 package com.example.prm392_group2_shoesordersystem.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prm392_group2_shoesordersystem.R;
@@ -36,6 +38,11 @@ public class ManagePageAdapter extends RecyclerView.Adapter<ManagePageAdapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.title.setText(items.get(position));
         holder.icon.setImageResource(icons.get(position));
+        holder.title.setText(items.get(position));
+        holder.icon.setImageResource(icons.get(position));
+
+
+        holder.itemView.setBackgroundColor(Color.parseColor("#fef7ff"));
     }
 
     @Override

@@ -3,10 +3,13 @@ package com.example.prm392_group2_shoesordersystem.entity;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.sql.Date;
+
 @Entity(tableName = "Account")
 public class Account {
     @PrimaryKey(autoGenerate = true)
     public int account_id;
+
     public String email;
     public String password;
     public String fullname;

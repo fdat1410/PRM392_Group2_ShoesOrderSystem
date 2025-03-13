@@ -6,4 +6,7 @@
     </style>
 
     <style name="Theme.PRM392_Group2_ShoesOrderSystem" parent="Base.Theme.PRM392_Group2_ShoesOrderSystem" />
+    <style name="Theme.PRM392_Group2_ShoesOrderSystem.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.PRM392_Group2_ShoesOrderSystem.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

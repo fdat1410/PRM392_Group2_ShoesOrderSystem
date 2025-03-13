@@ -1,23 +1,23 @@
-package com.example.prm392_group2_shoesordersystem.activity;
+package com.example.prm392_group2_shoesordersystem.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.prm392_group2_shoesordersystem.R;
+import com.example.prm392_group2_shoesordersystem.activity.CreateSellerAccountActivity;
 import com.example.prm392_group2_shoesordersystem.adapter.AccountSellerAdapter;
 import com.example.prm392_group2_shoesordersystem.entity.Account;
 import com.example.prm392_group2_shoesordersystem.repository.AccountRepository;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class ManagePageFragmentSellerManagement extends Fragment {
@@ -25,7 +25,7 @@ public class ManagePageFragmentSellerManagement extends Fragment {
     private AccountSellerAdapter adapter;
     private AccountRepository accountRepository;
     private Button btnCreateSeller, btnNext, btnPrevious;
-    private List<Account> sellerList;
+    private List<Account> sellerList = new ArrayList<>();
     private int currentPage = 0;
     private static final int PAGE_SIZE = 2;
     private TextView txtPageNumber;
@@ -44,12 +44,18 @@ public class ManagePageFragmentSellerManagement extends Fragment {
         accountRepository = new AccountRepository(requireContext());
         sellerList = accountRepository.ViewListAccountSeller();
 
+
+        if (sellerList == null) {
+            sellerList = new ArrayList<>();
+        }
+
         adapter = new AccountSellerAdapter(getCurrentPageData(), requireContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
 
         btnCreateSeller.setOnClickListener(v -> {
-            // Xử lý sự kiện tạo tài khoản người bán
+            Intent intent = new Intent(getContext(), CreateSellerAccountActivity.class);
+            startActivity(intent);
         });
 
         btnNext.setOnClickListener(v -> {

@@ -1,4 +1,4 @@
-package com.example.prm392_group2_shoesordersystem.activity;
+package com.example.prm392_group2_shoesordersystem.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -23,13 +23,13 @@ public class ManagePageFragmentHome extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        // Inflate layout cho Fragment
+
         View view = inflater.inflate(R.layout.activity_manage_page_fragment_home, container, false);
 
-        // Ánh xạ RecyclerView
+
         recyclerView = view.findViewById(R.id.recyclerView);
 
-        // Danh sách tiêu đề và icon
+
         List<String> items = Arrays.asList(
                 "Sale Performance by Month",
                 "Sale Performance by Category",
