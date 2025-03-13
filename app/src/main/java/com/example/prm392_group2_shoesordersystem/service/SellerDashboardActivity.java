@@ -1,11 +1,10 @@
-package com.example.prm392_group2_shoesordersystem.activity;
+package com.example.prm392_group2_shoesordersystem.service;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;

@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="16dp"
-    tools:context=".activity.UpdateShoesInformationActivity">
+    tools:context=".service.UpdateShoesInformationActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -102,7 +102,6 @@
         android:id="@+id/spinnerCategory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
 
     <Button
         android:id="@+id/btnUpdate"

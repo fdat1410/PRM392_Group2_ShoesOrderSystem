@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="16dp"
-    tools:context=".activity.AddNewShoesActivity">
+    tools:context=".service.AddNewShoesActivity">
 
     <TextView
         android:layout_width="match_parent"

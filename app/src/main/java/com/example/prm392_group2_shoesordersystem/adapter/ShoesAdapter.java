@@ -7,16 +7,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prm392_group2_shoesordersystem.R;
-import com.example.prm392_group2_shoesordersystem.activity.UpdateShoesInformationActivity;
+import com.example.prm392_group2_shoesordersystem.service.UpdateShoesInformationActivity;
 import com.example.prm392_group2_shoesordersystem.entity.Shoes;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -40,6 +41,7 @@ public class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ViewHolder>{
         holder.tvId.setText(String.valueOf(shoesList.get(position).shoes_id));
         holder.tvName.setText(shoesList.get(position).shoes_name);
         holder.tvPrice.setText(String.valueOf(shoesList.get(position).price));
+
         // Load ảnh bằng Picasso
         com.squareup.picasso.Picasso
                 .get()
@@ -49,10 +51,12 @@ public class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ViewHolder>{
         if (holder.btnUpdate != null) {
             holder.btnUpdate.setOnClickListener(v -> {
                 Intent intent = new Intent(context, UpdateShoesInformationActivity.class);
-                intent.putExtra("USER_ID", shoesList.get(position).shoes_id);  // Truyền ID sản phẩm
-                intent.putExtra("USER_NAME", shoesList.get(position).shoes_name);
-                intent.putExtra("USER_EMAIL", shoesList.get(position).price);
-                intent.putExtra("USER_PASSWORD", shoesList.get(position).img);
+                intent.putExtra("SHOES_ID", shoesList.get(position).shoes_id);  // Truyền ID sản phẩm
+                intent.putExtra("SHOES_NAME", shoesList.get(position).shoes_name);
+                intent.putExtra("SHOES_PRICE", shoesList.get(position).price);
+                intent.putExtra("SHOES_IMG", shoesList.get(position).img);
+                intent.putExtra("SHOES_DESCRIPTION", shoesList.get(position).description);
+                intent.putExtra("SHOES_CATEGORY_ID", shoesList.get(position).category_id);
                 context.startActivity(intent);
             });
         }else {

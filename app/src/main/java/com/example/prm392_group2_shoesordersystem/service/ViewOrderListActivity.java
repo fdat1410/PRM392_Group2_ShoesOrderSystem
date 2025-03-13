@@ -1,4 +1,4 @@
-package com.example.prm392_group2_shoesordersystem.activity;
+package com.example.prm392_group2_shoesordersystem.service;
 
 import android.os.Bundle;
 

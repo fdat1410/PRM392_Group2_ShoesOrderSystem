@@ -1,4 +1,4 @@
-package com.example.prm392_group2_shoesordersystem.activity;
+package com.example.prm392_group2_shoesordersystem.service;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -6,10 +6,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -18,12 +16,9 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
-import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.prm392_group2_shoesordersystem.R;
 import com.example.prm392_group2_shoesordersystem.entity.Category;
@@ -32,7 +27,6 @@ import com.example.prm392_group2_shoesordersystem.entity.Size;
 import com.example.prm392_group2_shoesordersystem.repository.CategoryRepository;
 import com.example.prm392_group2_shoesordersystem.repository.ShoesRepository;
 import com.example.prm392_group2_shoesordersystem.repository.SizeRepository;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

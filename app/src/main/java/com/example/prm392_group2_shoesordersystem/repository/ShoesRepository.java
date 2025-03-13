@@ -29,4 +29,10 @@ public class ShoesRepository {
     public List<Shoes> getAllShoes() {
         return shoesDAO.getAllShoes();
     }
+    public void updateShoes(Shoes shoe) {
+        shoesDAO.updateShoes(shoe);
+    }
+    public void updateShoesById(int id, String name, Double price, String img, String description, int category_id) {
+        shoesDAO.updateShoesById(id, name, price, img, description, category_id);
+    }
 }

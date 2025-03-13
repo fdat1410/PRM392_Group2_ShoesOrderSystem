@@ -33,7 +33,7 @@ public class HomeFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerView);
         shoesRepository = new ShoesRepository(getContext());
         List<Shoes> shoes =shoesRepository.getAllShoes();
-        ShoesAdapter shoesAdapter = new ShoesAdapter(context,shoes);
+        ShoesAdapter shoesAdapter = new ShoesAdapter(requireContext(),shoes);
         recyclerView.setAdapter(shoesAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         return view;
