@@ -16,7 +16,7 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
         switch (position) {
             case 0: return new HomeFragment();
             case 1: return new CustomerAccountListFragment();
-            case 2: return new ProfileFragment();
+            case 2: return new OrderListFragment();
             default: return new HomeFragment();
         }
     }

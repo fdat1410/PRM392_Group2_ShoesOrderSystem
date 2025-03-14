@@ -22,7 +22,12 @@
         <activity
             android:name=".service.UpdateShoesInformationActivity"
             android:exported="true"
-            android:label="Update Shoes Information" />
+            android:label="Update Shoes Information"
+            android:parentActivityName=".service.SellerDashboardActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".service.SellerDashboardActivity" />
+        </activity>
         <activity
             android:name=".service.AddNewShoesActivity"
             android:exported="true"

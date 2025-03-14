@@ -35,4 +35,7 @@ public class ShoesRepository {
     public void updateShoesById(int id, String name, Double price, String img, String description, int category_id) {
         shoesDAO.updateShoesById(id, name, price, img, description, category_id);
     }
+    public Shoes getShoeById(int shoesId) {
+        return shoesDAO.getShoeById(shoesId);
+    }
 }

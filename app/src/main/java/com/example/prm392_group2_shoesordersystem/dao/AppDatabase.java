@@ -23,6 +23,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract AccountDAO accountDAO();
     public abstract OrderDAO orderDAO();
     public abstract CategoryDAO categoryDAO();
+    public abstract Order_detailDAO orderDetailDAO();
     public static synchronized AppDatabase getInstance(Context context) {
         if (instance == null) {
             instance = Room.databaseBuilder(context.getApplicationContext(),

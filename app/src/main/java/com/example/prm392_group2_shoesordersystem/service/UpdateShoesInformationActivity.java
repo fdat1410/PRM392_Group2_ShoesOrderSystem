@@ -151,6 +151,8 @@ public class UpdateShoesInformationActivity extends AppCompatActivity {
             // Cập nhật giày trong database
             shoesRepository.updateShoesById(shoes.shoes_id, shoes.shoes_name, shoes.price, shoes.img, shoes.description, shoes.category_id);
             Toast.makeText(this, "Update Shoes Successfully!", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, SellerDashboardActivity.class);
+            startActivity(intent);
         } catch (Exception e) {
             Toast.makeText(this, "Update Failed!", Toast.LENGTH_SHORT).show();
         }

@@ -27,5 +27,8 @@ public interface ShoesDAO {
     void updateShoes(Shoes shoe);
     @Query("UPDATE Shoes SET shoes_name = :name, price = :price, img = :img, description = :description, category_id = :category_id WHERE shoes_id = :id")
     void updateShoesById(int id, String name, Double price, String img, String description, int category_id);
+
+    @Query("SELECT * FROM Shoes WHERE shoes_id = :shoesId")
+    Shoes getShoeById(int shoesId);
 }
 
