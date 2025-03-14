@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewProfileDetailActivity">
+
+    <!--    Header-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#D33636"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/ic_logo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Tiêu đề -->
+        <TextView
+            android:id="@+id/tvHeaderTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:text="Profile"
+            android:textColor="@android:color/white"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/ivLogo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Dấu 3 gạch -->
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="More options"
+            android:src="@drawable/more_vert"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginLeft="90dp"
+            app:layout_constraintLeft_toRightOf="@+id/tvHeaderTitle"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Dịch phần nội dung xuống dưới header -->
+    <TextView
+        android:id="@+id/tvProfileTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Information Detail"
+        android:textColor="@android:color/black"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header" />
+
+    <!--Avatar    -->
+    <ImageView
+        android:id="@+id/ivAvatar"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvProfileTitle" />
+
+    <!--    FullName-->
+    <TextView
+        android:id="@+id/tvFullNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:text="Full Name"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toRightOf="@+id/ivAvatar"
+        app:layout_constraintTop_toBottomOf="@id/tvProfileTitle" />
+
+    <TextView
+        android:id="@+id/tvFullName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="7dp"
+        android:text="Trần Trung Hậu"
+        android:textColor="@android:color/black"
+        android:textSize="17dp"
+        app:layout_constraintLeft_toRightOf="@+id/ivAvatar"
+        app:layout_constraintTop_toBottomOf="@id/tvFullNameLabel" />
+
+    <TextView
+        android:id="@+id/tvEmailLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:text="Email"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toRightOf="@+id/ivAvatar"
+        app:layout_constraintTop_toBottomOf="@id/tvFullName" />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="7dp"
+        android:text="trantrunghaunp@gmail.com"
+        android:textSize="17dp"
+        app:layout_constraintLeft_toRightOf="@+id/ivAvatar"
+        app:layout_constraintTop_toBottomOf="@id/tvEmailLabel" />
+
+    <!--    Phone-->
+    <TextView
+        android:id="@+id/tvPhoneLabel"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Phone"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="@id/ivAvatar"
+        app:layout_constraintTop_toBottomOf="@id/ivAvatar" />
+
+    <TextView
+        android:id="@+id/tvPhone"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="012345678"
+        android:textSize="17dp"
+        app:layout_constraintLeft_toLeftOf="@id/ivAvatar"
+        app:layout_constraintTop_toBottomOf="@id/tvPhoneLabel" />
+
+    <!--    Role-->
+    <TextView
+        android:id="@+id/tvRoleLabel"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:text="Role"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toRightOf="@id/tvPhoneLabel"
+        app:layout_constraintTop_toBottomOf="@id/ivAvatar" />
+
+    <TextView
+        android:id="@+id/tvRole"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:text="Customer"
+        android:textSize="17dp"
+        app:layout_constraintLeft_toRightOf="@id/tvPhoneLabel"
+        app:layout_constraintTop_toBottomOf="@id/tvRoleLabel" />
+
+    <!--    Gender-->
+    <TextView
+        android:id="@+id/tvGenderLabel"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Gender"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="@id/ivAvatar"
+        app:layout_constraintTop_toBottomOf="@id/tvPhone" />
+
+    <TextView
+        android:id="@+id/tvGender"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="Men"
+        android:textSize="17dp"
+        app:layout_constraintLeft_toLeftOf="@id/ivAvatar"
+        app:layout_constraintTop_toBottomOf="@id/tvGenderLabel" />
+
+    <TextView
+        android:id="@+id/tvDOBLabel"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="17dp"
+        android:text="DOB"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toRightOf="@id/tvPhoneLabel"
+        app:layout_constraintTop_toBottomOf="@id/tvRole" />
+
+    <!--    DOB-->
+    <TextView
+        android:id="@+id/tvDOB"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="7dp"
+        android:text="20/10/2003"
+        android:textSize="17dp"
+
+        app:layout_constraintLeft_toRightOf="@id/tvPhoneLabel"
+        app:layout_constraintTop_toBottomOf="@id/tvDOBLabel" />
+
+    <!--    Address-->
+    <TextView
+        android:id="@+id/tvAddressLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Address"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@id/ivAvatar"
+        app:layout_constraintTop_toBottomOf="@id/tvGender" />
+
+    <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="Nghĩa Phong Nghĩa Hưng Nam Dinh"
+        android:textSize="17dp"
+        app:layout_constraintLeft_toLeftOf="@id/ivAvatar"
+        app:layout_constraintTop_toBottomOf="@id/tvAddressLabel" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#D33636"
+        android:text="Back"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="@+id/tvAddress"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
+
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#18C74C"
+        android:text="Update"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toRightOf="@+id/btnBack"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
+</androidx.constraintlayout.widget.ConstraintLayout>
