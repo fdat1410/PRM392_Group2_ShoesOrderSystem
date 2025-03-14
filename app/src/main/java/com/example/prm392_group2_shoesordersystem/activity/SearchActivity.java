@@ -19,7 +19,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prm392_group2_shoesordersystem.R;
 import com.example.prm392_group2_shoesordersystem.adapter.ShoesAdapter;
+import com.example.prm392_group2_shoesordersystem.entity.Category;
 import com.example.prm392_group2_shoesordersystem.entity.Shoes;
+import com.example.prm392_group2_shoesordersystem.repository.CategoryRepository;
 import com.example.prm392_group2_shoesordersystem.repository.ShoesRepository;
 
 import java.util.ArrayList;
@@ -31,6 +33,7 @@ public class SearchActivity extends AppCompatActivity {
     private Button btnSearch;
     private RecyclerView recyclerViewSearch;
     private ShoesRepository shoesRepository;
+    private CategoryRepository categoryRepository;
     private ShoesAdapter shoesAdapter;
 
     @SuppressLint("MissingInflatedId")
@@ -53,14 +56,12 @@ public class SearchActivity extends AppCompatActivity {
         recyclerViewSearch = findViewById(R.id.recyclerViewSearch);
 
         shoesRepository = new ShoesRepository(this);
+        categoryRepository = new CategoryRepository(this);
         shoesAdapter = new ShoesAdapter(this, null);
         recyclerViewSearch.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewSearch.setAdapter(shoesAdapter);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.categories_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerCategory.setAdapter(adapter);
+        loadCategories();
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +69,19 @@ public class SearchActivity extends AppCompatActivity {
                 searchShoes();
             }
         });
+    }
+
+    private void loadCategories() {
+        List<Category> categories = categoryRepository.getAllCategories();
+        List<String> categoryNames = new ArrayList<>();
+        categoryNames.add("All"); // Add "All" option
+        for (Category category : categories) {
+            categoryNames.add(category.getCategory_name());
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categoryNames);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCategory.setAdapter(adapter);
     }
 
     private void searchShoes() {
@@ -94,6 +108,5 @@ public class SearchActivity extends AppCompatActivity {
         }
         ShoesAdapter adapter = new ShoesAdapter(this, shoes);
         recyclerViewSearch.setAdapter(adapter);
-
     }
 }

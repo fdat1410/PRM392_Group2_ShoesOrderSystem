@@ -20,4 +20,6 @@ public interface CategoryDAO {
     @Query("SELECT * FROM Category WHERE category_name = :categoryName")
     Category getCategoryByName(String categoryName);
 
+    @Query("SELECT * FROM Category WHERE category_name LIKE :keyword")
+    List<Category> searchCategories(String keyword);
 }

@@ -56,4 +56,5 @@ public class ShoesRepository {
 
         return shoesDAO.searchShoes(keyword, minPrice, maxPrice, categoryId);
     }
+
 }
