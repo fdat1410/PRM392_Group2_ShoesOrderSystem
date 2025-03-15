@@ -20,11 +20,10 @@ public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase instance;
 
     public abstract AccountDAO accountDao();
-
     public abstract ShoesDAO shoesDAO();
     public abstract SizeDAO sizeDAO();
-
     public abstract CategoryDAO categoryDAO();
+    public abstract OrderDAO orderDAO();
 
 
 

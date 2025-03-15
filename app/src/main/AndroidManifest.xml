@@ -13,6 +13,9 @@
         android:theme="@style/Theme.PRM392_Group2_ShoesOrderSystem"
         tools:targetApi="31">
         <activity
+            android:name=".service.PerformanceByMonthActivity"
+            android:exported="true" />
+        <activity
             android:name=".service.SellerDashboardActivity"
             android:exported="true" />
 

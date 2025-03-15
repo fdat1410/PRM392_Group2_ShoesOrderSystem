@@ -1,6 +1,7 @@
 package com.example.prm392_group2_shoesordersystem.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prm392_group2_shoesordersystem.R;
+import com.example.prm392_group2_shoesordersystem.service.PerformanceByMonthActivity;
 
 import java.util.List;
 
@@ -38,11 +40,30 @@ public class ManagePageAdapter extends RecyclerView.Adapter<ManagePageAdapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.title.setText(items.get(position));
         holder.icon.setImageResource(icons.get(position));
-        holder.title.setText(items.get(position));
-        holder.icon.setImageResource(icons.get(position));
-
-
         holder.itemView.setBackgroundColor(Color.parseColor("#fef7ff"));
+
+        // Xử lý sự kiện click
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = null;
+            switch (position) {
+                case 0:
+                    intent = new Intent(context, PerformanceByMonthActivity.class);
+                    break;
+                case 1:
+//                    intent = new Intent(context, SalePerformanceCategoryActivity.class);
+                    break;
+                case 2:
+//                    intent = new Intent(context, TopCustomerActivity.class);
+                    break;
+                case 3:
+//                    intent = new Intent(context, TopProductActivity.class);
+                    break;
+            }
+
+            if (intent != null) {
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
