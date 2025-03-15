@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.prm392_group2_shoesordersystem.R;
-import com.example.prm392_group2_shoesordersystem.activity.CreateSellerAccountActivity;
+import com.example.prm392_group2_shoesordersystem.service.CreateSellerAccountActivity;
 import com.example.prm392_group2_shoesordersystem.adapter.AccountSellerAdapter;
 import com.example.prm392_group2_shoesordersystem.entity.Account;
 import com.example.prm392_group2_shoesordersystem.repository.AccountRepository;

@@ -21,6 +21,11 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract AccountDAO accountDao();
 
+    public abstract ShoesDAO shoesDAO();
+    public abstract SizeDAO sizeDAO();
+
+    public abstract CategoryDAO categoryDAO();
+
 
 
     public static synchronized AppDatabase getInstance(Context context) {
