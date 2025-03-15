@@ -55,7 +55,7 @@
         android:text="đ42.000"
         android:textStyle="bold"
         android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@id/img_product"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/img_product"
         />
 
@@ -68,7 +68,7 @@
         android:textSize="14sp"
         android:textColor="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/tv_product_price"
+        app:layout_constraintBottom_toBottomOf="@id/tv_product_size"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

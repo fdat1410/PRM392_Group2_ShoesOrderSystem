@@ -38,15 +38,14 @@ public class OrderDetailAdapter extends RecyclerView.Adapter<OrderDetailAdapter.
         Shoes shoe = shoesRepository.getShoeById(orderDetails.get(position).shoes_id);
         holder.tvProductName.setText(shoe.shoes_name);
         holder.tvProductQuantity.setText("x" +String.valueOf(orderDetails.get(position).quantity));
-        holder.tvProductPrice.setText(String.valueOf(shoe.price * orderDetails.get(position).quantity));
-        holder.tvProductSize.setText(String.valueOf(orderDetails.get(position).size));
+        holder.tvProductPrice.setText(String.valueOf("$"+shoe.price * orderDetails.get(position).quantity));
+        holder.tvProductSize.setText(String.valueOf("Size "+orderDetails.get(position).size));
         // Load ảnh bằng Picasso
         com.squareup.picasso.Picasso
                 .get()
                 .load(shoe.img) // Đường dẫn ảnh từ bộ nhớ trong
                 .placeholder(R.drawable.ic_launcher_background) // Ảnh mặc định nếu chưa có ảnh
                 .into(holder.imgProduct);
-
     }
 
     @Override

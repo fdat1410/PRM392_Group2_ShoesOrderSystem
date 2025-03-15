@@ -11,4 +11,7 @@ import java.util.List;
 public interface Order_detailDAO {
     @Query("SELECT * FROM Order_detail WHERE order_id = :order_id")
     List<Order_detail> getOrderDetailsByOrderId(int order_id);
+
+    @Query("SELECT * FROM Order_detail WHERE order_id = :order_id LIMIT 1")
+    List<Order_detail> getOrderDetailsByOrderIdTop1(int order_id);
 }

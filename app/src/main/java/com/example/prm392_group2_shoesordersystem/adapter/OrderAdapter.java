@@ -38,7 +38,6 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         return new OrderViewHolder(view);
     }
 
-
     @Override
     public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
         Order order = orders.get(position);
@@ -46,34 +45,39 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         holder.tvOrderStatus.setText((order.ord_status == 1 ? "Done" : "Processing"));
         holder.tvTotalPrice.setText("Total: $" + order.totalPrice);
 
-
         new Thread(() -> {
             List<Order_detail> details = orderRepository.getOrderDetails(order.order_id);
+            List<Order_detail> detail_top1 = orderRepository.getOrderDetailTop1(order.order_id);
             List<Shoes> shoesList = new ArrayList<>();
 
             for (Order_detail detail : details) {
                 Shoes shoe = orderRepository.getShoeById(detail.shoes_id);
                 shoesList.add(shoe);
             }
-
             holder.recyclerView.post(() -> {
-                OrderDetailAdapter adapter = new OrderDetailAdapter(holder.itemView.getContext(), details);
+                OrderDetailAdapter adapter = new OrderDetailAdapter(holder.itemView.getContext(), detail_top1);
                 holder.recyclerView.setAdapter(adapter);
                 holder.recyclerView.setLayoutManager(new LinearLayoutManager(holder.itemView.getContext()));
             });
+            OrderDetailAdapter adapter = new OrderDetailAdapter(holder.itemView.getContext(), details);
+
+            // Cập nhật sự kiện khi bấm nút "See More"
+            holder.btnSeeMore.post(() -> {
+                holder.btnSeeMore.setOnClickListener(v -> {
+                    if(holder.recyclerView.getVisibility() == View.VISIBLE){
+                        holder.recyclerView.post(() -> {
+                            //OrderDetailAdapter adapterFull = new OrderDetailAdapter(holder.itemView.getContext(), details);
+                            holder.recyclerView.setAdapter(adapter);
+                            holder.recyclerView.setLayoutManager(new LinearLayoutManager(holder.itemView.getContext()));
+                        });
+                        holder.recyclerView.setVisibility(View.VISIBLE);
+                        holder.btnSeeMore.setText("");
+                    }
+                });
+            });
+
         }).start();
-
-        holder.btnSeeMore.setOnClickListener(v -> {
-            if (holder.recyclerView.getVisibility() == View.GONE) {
-                holder.recyclerView.setVisibility(View.VISIBLE);
-                holder.btnSeeMore.setText("See Less");
-            } else {
-                holder.recyclerView.setVisibility(View.GONE);
-                holder.btnSeeMore.setText("See More");
-            }
-        });
     }
-
 
     @Override
     public int getItemCount() {

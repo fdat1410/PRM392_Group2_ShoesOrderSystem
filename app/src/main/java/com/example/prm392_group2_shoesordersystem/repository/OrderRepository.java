@@ -37,4 +37,12 @@ public class OrderRepository {
     public Shoes getShoeById(int shoesId) {
         return shoesDao.getShoeById(shoesId);
     }
+
+    public List<Order_detail> getOrderDetailTop1(int orderId) {
+        if (orderDetailDao == null) {
+            Log.e("OrderRepository", "order_detailDAO is NULL");
+            return new ArrayList<>(); // Tránh NullPointerException
+        }
+        return orderDetailDao.getOrderDetailsByOrderIdTop1(orderId);
+    }
 }

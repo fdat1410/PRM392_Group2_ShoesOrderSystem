@@ -5,4 +5,5 @@
     <color name="primary">#009688</color>
     <color name="bottom_nav">#E2B737</color>
     <color name="gray">#3A3937</color>
+    <color name="bg_order_item">#A6E2E0DD</color>
 </resources>
