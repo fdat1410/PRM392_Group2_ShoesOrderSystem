@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.prm392_group2_shoesordersystem.R;
 import com.example.prm392_group2_shoesordersystem.service.PerformanceByCategoryActivity;
 import com.example.prm392_group2_shoesordersystem.service.PerformanceByMonthActivity;
+import com.example.prm392_group2_shoesordersystem.service.TopCustomerActivity;
 
 import java.util.List;
 
@@ -54,7 +55,7 @@ public class ManagePageAdapter extends RecyclerView.Adapter<ManagePageAdapter.Vi
                     intent = new Intent(context, PerformanceByCategoryActivity.class);
                     break;
                 case 2:
-//                    intent = new Intent(context, TopCustomerActivity.class);
+                    intent = new Intent(context, TopCustomerActivity.class);
                     break;
                 case 3:
 //                    intent = new Intent(context, TopProductActivity.class);

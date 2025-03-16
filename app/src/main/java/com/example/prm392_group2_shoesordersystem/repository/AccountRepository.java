@@ -10,6 +10,8 @@ import java.util.concurrent.Executors;
 import com.example.prm392_group2_shoesordersystem.entity.Account;
 import com.example.prm392_group2_shoesordersystem.dao.AccountDAO;
 import com.example.prm392_group2_shoesordersystem.dao.AppDatabase;
+import com.example.prm392_group2_shoesordersystem.entity.CustomerSale;
+import com.example.prm392_group2_shoesordersystem.entity.MonthSale;
 
 public class AccountRepository {
 
@@ -53,6 +55,10 @@ public class AccountRepository {
             return false;
         }
         return result[0];
+    }
+
+    public List<CustomerSale> ListCustomerSale() {
+        return accountDAO.ListCustomerSale();
     }
 
 

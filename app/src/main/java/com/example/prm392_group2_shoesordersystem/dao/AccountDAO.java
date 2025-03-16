@@ -8,6 +8,8 @@ import androidx.room.Transaction;
 
 
 import com.example.prm392_group2_shoesordersystem.entity.Account;
+import com.example.prm392_group2_shoesordersystem.entity.CustomerSale;
+
 
 import java.sql.Date;
 import java.util.List;
@@ -52,6 +54,17 @@ public interface AccountDAO {
 
         return insertAccount(newAccount) > 0;
     }
+
+    @Query("select a.account_id, a.fullName,a.fullname , SUM(o.totalPrice) as total_amount, \n" +
+            "COUNT(DISTINCT od.order_id) * od.quantity AS item_bought, a.email\n" +
+            "from [Order] o INNER JOIN [Order_detail] od\n" +
+            "on o.order_id = od.order_id Inner join Account a \n" +
+            "on o.account_id = a.account_id \n" +
+            "INNER JOIN Shoes s ON od.shoes_id = s.shoes_id\n" +
+            "where a.role=0 GROUP BY a.account_id, a.fullname, od.quantity order by total_amount DESC")
+    List<CustomerSale> ListCustomerSale();
+
+
 
 
 
