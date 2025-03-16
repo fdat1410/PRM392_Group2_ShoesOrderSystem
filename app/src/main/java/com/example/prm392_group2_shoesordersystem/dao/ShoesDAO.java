@@ -6,6 +6,7 @@ import androidx.room.Query;
 import androidx.room.Transaction;
 import androidx.room.Update;
 
+import com.example.prm392_group2_shoesordersystem.entity.ShoesSale;
 import com.example.prm392_group2_shoesordersystem.entity.Shoes;
 
 import java.util.List;
@@ -31,5 +32,14 @@ public interface ShoesDAO {
     @Transaction
     @Query("UPDATE Shoes SET shoes_status = :shoesStatus WHERE shoes_id = :shoesId")
     void UpdateShoesStatus(int shoesId, int shoesStatus);
+
+    @Query("SELECT s.shoes_id,s.shoes_name,s.img\n" +
+            "               ,COUNT(DISTINCT od.order_id) * od.quantity  AS item_bought,\n" +
+            "\t\t\t   SUM(o.totalPrice) as total_amount\n" +
+            "               FROM Order_detail od join Shoes s on od.shoes_id = s.shoes_id\n" +
+            "               join [Order] o on o.order_id = od.order_id\n" +
+            "               GROUP BY s.shoes_id,s.shoes_name,s.img\n" +
+            "               ORDER BY item_bought DESC")
+    List<ShoesSale> ListShoesSale();
 }
 

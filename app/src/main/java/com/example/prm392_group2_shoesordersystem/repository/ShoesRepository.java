@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.example.prm392_group2_shoesordersystem.dao.AppDatabase;
 import com.example.prm392_group2_shoesordersystem.dao.ShoesDAO;
+import com.example.prm392_group2_shoesordersystem.entity.ShoesSale;
 import com.example.prm392_group2_shoesordersystem.entity.Shoes;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -42,5 +43,9 @@ public class ShoesRepository {
 
     public void UpdateShoesStatus(int shoesId, int shoesStatus) {
         executorService.execute(() -> shoesDAO.UpdateShoesStatus(shoesId, shoesStatus));
+    }
+
+    public List<ShoesSale> ListShoesSale() {
+        return shoesDAO.ListShoesSale();
     }
 }

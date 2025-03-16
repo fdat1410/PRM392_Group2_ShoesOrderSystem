@@ -6,7 +6,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".service.TopCustomerActivity">
+    tools:context=".service.TopShoesActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
             android:background="#f1e9f7"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:navigationIcon="@drawable/baseline_arrow_back_24"
-            app:title="Top 5 Customer"
+            app:title="Top 5 Product"
             app:titleTextColor="#040303" />
 
         <LinearLayout
@@ -71,22 +71,13 @@
                             android:layout_weight="2"
                             android:gravity="center"
                             android:padding="8dp"
-                            android:text="Email"
+                            android:text="Shoes name"
                             android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="2"
-                            android:gravity="center"
-                            android:padding="8dp"
-                            android:text="Full Name"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:gravity="center"
                             android:padding="8dp"
                             android:text="Quantity"
@@ -95,11 +86,23 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="2"
+                            android:layout_weight="1"
                             android:gravity="center"
                             android:padding="8dp"
                             android:text="Amount"
                             android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:gravity="center"
+                            android:padding="8dp"
+                            android:text="Image"
+                            android:textStyle="bold" />
+
+
+
                     </TableRow>
 
                 </TableLayout>
