@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prm392_group2_shoesordersystem.R;
-import com.example.prm392_group2_shoesordersystem.adapter.ShoesAdapter;
+import com.example.prm392_group2_shoesordersystem.adapter.SearchShoesAdapter;
 import com.example.prm392_group2_shoesordersystem.entity.Category;
 import com.example.prm392_group2_shoesordersystem.entity.Shoes;
 import com.example.prm392_group2_shoesordersystem.repository.CategoryRepository;
@@ -34,7 +34,7 @@ public class SearchActivity extends AppCompatActivity {
     private RecyclerView recyclerViewSearch;
     private ShoesRepository shoesRepository;
     private CategoryRepository categoryRepository;
-    private ShoesAdapter shoesAdapter;
+    private SearchShoesAdapter searchShoesAdapter;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -57,9 +57,9 @@ public class SearchActivity extends AppCompatActivity {
 
         shoesRepository = new ShoesRepository(this);
         categoryRepository = new CategoryRepository(this);
-        shoesAdapter = new ShoesAdapter(this, null);
+        searchShoesAdapter = new SearchShoesAdapter(this, null);
         recyclerViewSearch.setLayoutManager(new LinearLayoutManager(this));
-        recyclerViewSearch.setAdapter(shoesAdapter);
+        recyclerViewSearch.setAdapter(searchShoesAdapter);
 
         loadCategories();
 
@@ -97,6 +97,12 @@ public class SearchActivity extends AppCompatActivity {
             if (!etMaxPrice.getText().toString().isEmpty()) {
                 maxPrice = Double.parseDouble(etMaxPrice.getText().toString());
             }
+
+            // Kiểm tra minPrice > maxPrice
+            if (minPrice != null && maxPrice != null && minPrice > maxPrice) {
+                Toast.makeText(this, "Min price cannot be greater than max price!", Toast.LENGTH_SHORT).show();
+                return;
+            }
         } catch (NumberFormatException e) {
             Toast.makeText(this, "Invalid price format", Toast.LENGTH_SHORT).show();
             return;
@@ -106,7 +112,9 @@ public class SearchActivity extends AppCompatActivity {
         if (shoes == null) {
             shoes = new ArrayList<>();
         }
-        ShoesAdapter adapter = new ShoesAdapter(this, shoes);
+
+        SearchShoesAdapter adapter = new SearchShoesAdapter(this, shoes);
         recyclerViewSearch.setAdapter(adapter);
     }
+
 }

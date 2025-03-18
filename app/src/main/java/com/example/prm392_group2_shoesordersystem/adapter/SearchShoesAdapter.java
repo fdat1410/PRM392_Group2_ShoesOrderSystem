@@ -1,6 +1,7 @@
 package com.example.prm392_group2_shoesordersystem.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,41 +12,52 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prm392_group2_shoesordersystem.R;
+import com.example.prm392_group2_shoesordersystem.activity.ViewShoesDetailActivity;
 import com.example.prm392_group2_shoesordersystem.entity.Shoes;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ViewHolder> {
+public class SearchShoesAdapter extends RecyclerView.Adapter<SearchShoesAdapter.ViewHolder> {
 
     private Context context;
     private List<Shoes> shoesList;
 
-    public ShoesAdapter(Context context, List<Shoes> shoesList) {
+    public SearchShoesAdapter(Context context, List<Shoes> shoesList) {
         this.context = context;
         this.shoesList = shoesList;
     }
 
     @NonNull
     @Override
-    public ShoesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_shoes_search, parent, false); // Sử dụng layout search
+    public SearchShoesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_shoes_search, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ShoesAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SearchShoesAdapter.ViewHolder holder, int position) {
         Shoes shoe = shoesList.get(position);
 
         holder.tvName.setText(shoe.shoes_name);
-        holder.tvPrice.setText(String.valueOf(shoe.price));
+        holder.tvPrice.setText(String.format("%,.0f", shoe.price));
 
         Picasso.get()
                 .load(shoe.img)
                 .placeholder(R.drawable.ic_launcher_background)
                 .error(R.drawable.ic_launcher_foreground)
                 .into(holder.img);
+
+        holder.tvName.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ViewShoesDetailActivity.class);
+            intent.putExtra("shoes_name", shoe.shoes_name);
+            intent.putExtra("shoes_price", shoe.price);
+            intent.putExtra("shoes_description", shoe.description);
+            intent.putExtra("shoes_img", shoe.img);
+            context.startActivity(intent);
+        });
     }
+
 
     @Override
     public int getItemCount() {

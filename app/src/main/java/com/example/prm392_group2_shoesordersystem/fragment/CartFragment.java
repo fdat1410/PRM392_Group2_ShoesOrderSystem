@@ -24,6 +24,7 @@ public class CartFragment extends Fragment {
 
         return root;
     }
+
 }
 
 
