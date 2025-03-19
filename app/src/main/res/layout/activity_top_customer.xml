@@ -12,8 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -51,7 +50,7 @@
                     android:shrinkColumns="*"
                     android:stretchColumns="*">
 
-                    <!-- Tiêu đề bảng -->
+
                     <TableRow
                         android:background="#D1C4E9"
                         android:padding="8dp">
