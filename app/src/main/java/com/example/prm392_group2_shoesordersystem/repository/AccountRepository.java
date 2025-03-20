@@ -17,4 +17,7 @@ public class AccountRepository {
     public List<Account> getAllCustomerAccounts() {
         return accountDAO.getAllCustomerAccounts();
     }
+    public void UpdateAccountStatus(int id, int status) {
+        accountDAO.UpdateAccountStatus(id, status);
+    }
 }

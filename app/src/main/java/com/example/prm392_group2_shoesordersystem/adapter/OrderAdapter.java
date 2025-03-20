@@ -42,7 +42,14 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
     public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
         Order order = orders.get(position);
         holder.tvOrderId.setText("Order ID: #" + order.order_id);
-        holder.tvOrderStatus.setText((order.ord_status == 1 ? "Done" : "Processing"));
+        //holder.tvOrderStatus.setText((order.ord_status == 1 ? "Done" : "Processing"));
+        if (order.ord_status == 1) {
+            holder.tvOrderStatus.setText("Done");
+            holder.tvOrderStatus.setSelected(true);  // Áp dụng màu xanh
+        } else {
+            holder.tvOrderStatus.setText("Processing");
+            holder.tvOrderStatus.setSelected(false); // Áp dụng màu vàng
+        }
         holder.tvTotalPrice.setText("Total: $" + order.totalPrice);
 
         new Thread(() -> {

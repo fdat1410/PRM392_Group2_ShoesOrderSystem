@@ -32,7 +32,7 @@ public class CustomerAccountListFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerView);
         accountRepository = new AccountRepository(getContext());
         List<Account> accounts =accountRepository.getAllCustomerAccounts();
-        AccountAdapter accountAdapter = new AccountAdapter(requireContext(),accounts);
+        AccountAdapter accountAdapter = new AccountAdapter(requireContext(),accounts, accountRepository);
         recyclerView.setAdapter(accountAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         return view;

@@ -43,11 +43,10 @@
 
             <!-- Nút Update -->
             <Button
-                android:id="@+id/btnUpdate"
+                android:id="@+id/btnStatus"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:text="Change Status"
-                android:backgroundTint="#4CAF50"
                 android:textColor="#FFFFFF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvName"

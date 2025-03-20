@@ -87,21 +87,23 @@ public class AddNewShoesActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Shoes shoes = new Shoes();
-                shoes.shoes_name = edtName.getText().toString();
-                String price_string = edtPrice.getText().toString();
-                shoes.price = Double.parseDouble(price_string);
-                shoes.description = edtDescription.getText().toString();
-                shoes.img = selectedImageUri;
-                // get id from position
-                int selectedPosition = spinnerCategory.getSelectedItemPosition();
-                if (selectedPosition >= 0 && selectedPosition < categories.size()) {
-                    shoes.category_id = categories.get(selectedPosition).category_id;
+                if (validateInputs()) {
+                    Shoes shoes = new Shoes();
+                    shoes.shoes_name = edtName.getText().toString();
+                    String price_string = edtPrice.getText().toString();
+                    shoes.price = Double.parseDouble(price_string);
+                    shoes.description = edtDescription.getText().toString();
+                    shoes.img = selectedImageUri;
+                    // get id from position
+                    int selectedPosition = spinnerCategory.getSelectedItemPosition();
+                    if (selectedPosition >= 0 && selectedPosition < categories.size()) {
+                        shoes.category_id = categories.get(selectedPosition).category_id;
+                    }
+                    shoes.shoes_status = 0;
+                    shoes.create_by = null;
+                    shoes.update_by = null;
+                    addShoesToDatabase(shoes);
                 }
-                shoes.shoes_status = 1;
-                shoes.create_by = null;
-                shoes.update_by = null;
-                addShoesToDatabase(shoes);
             }
         });
     }
@@ -147,4 +149,50 @@ public class AddNewShoesActivity extends AppCompatActivity {
         }
 
     }
+    private boolean validateInputs() {
+        String name = edtName.getText().toString().trim();
+        String priceStr = edtPrice.getText().toString().trim();
+        String description = edtDescription.getText().toString().trim();
+
+        // Validate Name
+        if (name.isEmpty()) {
+            edtName.setError("Product name cannot be empty");
+            edtName.requestFocus();
+            return false;
+        }
+
+        // Validate Price
+        if (priceStr.isEmpty()) {
+            edtPrice.setError("Price cannot be empty");
+            edtPrice.requestFocus();
+            return false;
+        }
+        try {
+            double price = Double.parseDouble(priceStr);
+            if (price <= 0) {
+                edtPrice.setError("Price must be greater than 0");
+                edtPrice.requestFocus();
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            edtPrice.setError("Invalid price");
+            edtPrice.requestFocus();
+            return false;
+        }
+
+        // Validate Description
+        if (description.isEmpty()) {
+            edtDescription.setError("Description cannot be empty");
+            edtDescription.requestFocus();
+            return false;
+        }
+
+        // Validate Image
+        if (selectedImageUri == null) {
+            Toast.makeText(this, "Please choose an image", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
 }

@@ -7,13 +7,18 @@ import com.example.prm392_group2_shoesordersystem.dao.ShoesDAO;
 import com.example.prm392_group2_shoesordersystem.entity.Shoes;
 
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class ShoesRepository {
+    private ExecutorService executorService;
     ShoesDAO shoesDAO;
     public ShoesRepository(Context context) {
         AppDatabase appDatabase = AppDatabase.getInstance(context);
         shoesDAO = appDatabase.shoesDAO();
+        executorService = Executors.newSingleThreadExecutor();
     }
+
     public void insertShoe(Shoes shoe) {
         shoesDAO.insertShoe(shoe);
     }
@@ -38,4 +43,8 @@ public class ShoesRepository {
     public Shoes getShoeById(int shoesId) {
         return shoesDAO.getShoeById(shoesId);
     }
+    public void UpdateShoesStatus(int shoesId, int shoesStatus) {
+        executorService.execute(() -> shoesDAO.UpdateShoesStatus(shoesId, shoesStatus));
+    }
+
 }

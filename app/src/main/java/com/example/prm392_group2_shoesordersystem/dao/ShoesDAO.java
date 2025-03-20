@@ -3,6 +3,7 @@ package com.example.prm392_group2_shoesordersystem.dao;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Transaction;
 import androidx.room.Update;
 
 import com.example.prm392_group2_shoesordersystem.entity.Shoes;
@@ -30,5 +31,9 @@ public interface ShoesDAO {
 
     @Query("SELECT * FROM Shoes WHERE shoes_id = :shoesId")
     Shoes getShoeById(int shoesId);
+    @Transaction
+    @Query("UPDATE Shoes SET shoes_status = :shoesStatus WHERE shoes_id = :shoesId")
+    void UpdateShoesStatus(int shoesId, int shoesStatus);
+
 }
 
