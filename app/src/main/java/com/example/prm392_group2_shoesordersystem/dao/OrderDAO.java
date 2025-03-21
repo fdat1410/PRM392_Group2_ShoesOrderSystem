@@ -31,5 +31,9 @@ public interface OrderDAO {
     List<MonthSale> ListMonthSale();
 
 
+    @Query("SELECT * FROM `Order`")
+    List<Order> getAllOrders();
+
+
 }
 

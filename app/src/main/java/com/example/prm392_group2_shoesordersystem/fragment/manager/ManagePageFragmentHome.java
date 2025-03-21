@@ -1,4 +1,4 @@
-package com.example.prm392_group2_shoesordersystem.fragment;
+package com.example.prm392_group2_shoesordersystem.fragment.manager;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

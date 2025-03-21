@@ -1,4 +1,4 @@
-package com.example.prm392_group2_shoesordersystem.service;
+package com.example.prm392_group2_shoesordersystem.service.manager;
 
 
 import android.annotation.SuppressLint;
@@ -12,14 +12,14 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.prm392_group2_shoesordersystem.R;
+import com.example.prm392_group2_shoesordersystem.entity.Account;
 import com.example.prm392_group2_shoesordersystem.entity.EmailSender;
 import com.example.prm392_group2_shoesordersystem.repository.AccountRepository;
-import com.example.prm392_group2_shoesordersystem.entity.Account;
-
 
 import java.util.Calendar;
 import java.util.Random;

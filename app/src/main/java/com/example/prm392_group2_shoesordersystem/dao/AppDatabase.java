@@ -24,6 +24,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract SizeDAO sizeDAO();
     public abstract CategoryDAO categoryDAO();
     public abstract OrderDAO orderDAO();
+    public abstract Order_detailDAO orderDetailDAO();
 
 
 

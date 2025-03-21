@@ -65,6 +65,10 @@ public interface AccountDAO {
     List<CustomerSale> ListCustomerSale();
 
 
+    @Query("SELECT * FROM Account WHERE role = 0")
+    List<Account> getAllCustomerAccounts();
+    @Query("UPDATE Account SET acc_status = :status WHERE account_id = :id")
+    void UpdateAccountStatus(int id, int status);
 
 
 

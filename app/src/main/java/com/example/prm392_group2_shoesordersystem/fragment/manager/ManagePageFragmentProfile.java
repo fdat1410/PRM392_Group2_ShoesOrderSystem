@@ -1,4 +1,4 @@
-package com.example.prm392_group2_shoesordersystem.fragment;
+package com.example.prm392_group2_shoesordersystem.fragment.manager;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,11 +11,10 @@ import androidx.fragment.app.Fragment;
 
 import com.example.prm392_group2_shoesordersystem.R;
 
-public class ProfileFragment extends Fragment {
+public class ManagePageFragmentProfile extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.profile_fragment, container, false);
-        return view;
+        return inflater.inflate(R.layout.activity_manage_page_fragment_profile, container, false);
     }
 }

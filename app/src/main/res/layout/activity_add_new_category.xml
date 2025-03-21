@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center"
+    tools:context=".service.AddNewCategoryActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <!-- Program Code -->
+        <TextView
+            android:text="Category Name"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/edtCategoryName"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:maxLength="10"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/editbox_background"/>
+    </LinearLayout>
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/btnSave"
+        android:text="Save"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="#DFF0D8"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="10dp"/>
+</LinearLayout>

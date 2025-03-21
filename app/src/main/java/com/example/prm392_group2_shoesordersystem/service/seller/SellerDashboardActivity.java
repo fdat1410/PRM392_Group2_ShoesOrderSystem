@@ -1,8 +1,7 @@
-package com.example.prm392_group2_shoesordersystem.service;
+package com.example.prm392_group2_shoesordersystem.service.seller;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,15 +9,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.viewpager2.widget.ViewPager2;
-import com.example.prm392_group2_shoesordersystem.adapter.ViewPagerAdapter;
+
 import com.example.prm392_group2_shoesordersystem.R;
+import com.example.prm392_group2_shoesordersystem.adapter.ViewPagerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class    SellerDashboardActivity extends AppCompatActivity {
-
+public class SellerDashboardActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     ViewPager2 viewPager;
-    private ImageButton btnOpenDrawer;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +35,12 @@ public class    SellerDashboardActivity extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.action_home) {
                 viewPager.setCurrentItem(0);
-                //selectedFragment = new HomeFragment();
-            } else if (item.getItemId() == R.id.action_fav) {
+            } else if (item.getItemId() == R.id.action_category) {
                 viewPager.setCurrentItem(1);
-                //selectedFragment = new FavouriteFragment();
-            } else if (item.getItemId() == R.id.action_profile) {
+            } else if (item.getItemId() == R.id.action_customer_account) {
                 viewPager.setCurrentItem(2);
-                //selectedFragment = new ProfileFragment();
+            } else if (item.getItemId() == R.id.action_orders) {
+                viewPager.setCurrentItem(3);
             }
             return true;
         });

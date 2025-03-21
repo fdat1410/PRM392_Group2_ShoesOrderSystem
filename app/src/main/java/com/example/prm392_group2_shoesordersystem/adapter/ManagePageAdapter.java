@@ -10,14 +10,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prm392_group2_shoesordersystem.R;
-import com.example.prm392_group2_shoesordersystem.service.PerformanceByCategoryActivity;
-import com.example.prm392_group2_shoesordersystem.service.PerformanceByMonthActivity;
-import com.example.prm392_group2_shoesordersystem.service.TopCustomerActivity;
-import com.example.prm392_group2_shoesordersystem.service.TopShoesActivity;
+import com.example.prm392_group2_shoesordersystem.service.manager.PerformanceByCategoryActivity;
+import com.example.prm392_group2_shoesordersystem.service.manager.PerformanceByMonthActivity;
+import com.example.prm392_group2_shoesordersystem.service.manager.TopCustomerActivity;
+import com.example.prm392_group2_shoesordersystem.service.manager.TopShoesActivity;
 
 import java.util.List;
 

@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.prm392_group2_shoesordersystem.fragment.HomeFragment;
-import com.example.prm392_group2_shoesordersystem.fragment.ProfileFragment;
+import com.example.prm392_group2_shoesordersystem.fragment.seller.CategoryFragment;
+import com.example.prm392_group2_shoesordersystem.fragment.seller.CustomerAccountListFragment;
+import com.example.prm392_group2_shoesordersystem.fragment.seller.HomeFragment;
+import com.example.prm392_group2_shoesordersystem.fragment.seller.OrderListFragment;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
     public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
@@ -19,9 +21,12 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
         switch (position) {
             case 0:
                 return new HomeFragment();
-//            case 1: return new CustomerAccountListFragment();
+            case 1:
+                return new CategoryFragment();
             case 2:
-                return new ProfileFragment();
+                return new CustomerAccountListFragment();
+            case 3:
+                return new OrderListFragment();
             default:
                 return new HomeFragment();
         }
@@ -29,7 +34,8 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 3;
+        return 4;
 
     }
+
 }

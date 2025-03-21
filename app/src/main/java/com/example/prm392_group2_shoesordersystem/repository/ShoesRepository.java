@@ -28,7 +28,7 @@ public class ShoesRepository {
         if (shoesId > 0) {
             return shoesDAO.getShoesById((int) shoesId); // Lấy đối tượng Shoes đầy đủ
         } else {
-            return null; // Trả về null nếu thêm thất bại
+            return null;
         }
     }
     public List<Shoes> getAllShoes() {
@@ -47,5 +47,9 @@ public class ShoesRepository {
 
     public List<ShoesSale> ListShoesSale() {
         return shoesDAO.ListShoesSale();
+    }
+
+    public Shoes getShoeById(int shoesId) {
+        return shoesDAO.getShoeById(shoesId);
     }
 }

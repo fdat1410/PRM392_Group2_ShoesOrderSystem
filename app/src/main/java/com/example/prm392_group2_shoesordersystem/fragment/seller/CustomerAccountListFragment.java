@@ -1,4 +1,4 @@
-package com.example.prm392_group2_shoesordersystem.fragment;
+package com.example.prm392_group2_shoesordersystem.fragment.seller;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -14,27 +14,26 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prm392_group2_shoesordersystem.R;
-import com.example.prm392_group2_shoesordersystem.adapter.ShoesAdapter;
-import com.example.prm392_group2_shoesordersystem.entity.Shoes;
-import com.example.prm392_group2_shoesordersystem.repository.ShoesRepository;
+import com.example.prm392_group2_shoesordersystem.adapter.AccountAdapter;
+import com.example.prm392_group2_shoesordersystem.entity.Account;
+import com.example.prm392_group2_shoesordersystem.repository.AccountRepository;
 
 import java.util.List;
 
-public class HomeFragment extends Fragment {
-
+public class CustomerAccountListFragment extends Fragment {
     private RecyclerView recyclerView;
-    private ShoesRepository shoesRepository;;
+    private AccountRepository accountRepository;
     Context context = getContext();
     @SuppressLint("MissingInflatedId")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.home_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_customer_account_list, container, false);
         recyclerView = view.findViewById(R.id.recyclerView);
-        shoesRepository = new ShoesRepository(getContext());
-        List<Shoes> shoes =shoesRepository.getAllShoes();
-        ShoesAdapter shoesAdapter = new ShoesAdapter(requireContext(),shoes);
-        recyclerView.setAdapter(shoesAdapter);
+        accountRepository = new AccountRepository(getContext());
+        List<Account> accounts =accountRepository.getAllCustomerAccounts();
+        AccountAdapter accountAdapter = new AccountAdapter(requireContext(),accounts, accountRepository);
+        recyclerView.setAdapter(accountAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         return view;
     }

@@ -61,6 +61,14 @@ public class AccountRepository {
         return accountDAO.ListCustomerSale();
     }
 
+    public void UpdateAccountStatus(int id, int status) {
+        accountDAO.UpdateAccountStatus(id, status);
+    }
+
+    public List<Account> getAllCustomerAccounts() {
+        return accountDAO.getAllCustomerAccounts();
+    }
+
 
 
 

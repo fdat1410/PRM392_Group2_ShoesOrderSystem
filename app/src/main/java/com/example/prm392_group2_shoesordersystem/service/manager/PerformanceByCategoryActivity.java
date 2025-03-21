@@ -1,9 +1,8 @@
 // PerformanceByCategoryActivity.java
-package com.example.prm392_group2_shoesordersystem.service;
+package com.example.prm392_group2_shoesordersystem.service.manager;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +15,6 @@ import com.example.prm392_group2_shoesordersystem.adapter.CategoryQuantityAdapte
 import com.example.prm392_group2_shoesordersystem.entity.CategorySale;
 import com.example.prm392_group2_shoesordersystem.repository.CategoryRepository;
 import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;

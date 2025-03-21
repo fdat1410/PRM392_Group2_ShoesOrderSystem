@@ -17,11 +17,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prm392_group2_shoesordersystem.R;
-import com.example.prm392_group2_shoesordersystem.entity.Account;
 import com.example.prm392_group2_shoesordersystem.entity.Shoes;
-import com.example.prm392_group2_shoesordersystem.repository.AccountRepository;
 import com.example.prm392_group2_shoesordersystem.repository.ShoesRepository;
-import com.example.prm392_group2_shoesordersystem.service.UpdateShoesInformationActivity;
+import com.example.prm392_group2_shoesordersystem.repository.UpdateShoesInformationActivity;
 
 import java.util.List;
 
@@ -35,18 +33,19 @@ public class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ViewHolder>{
         this.shoesRepository = new ShoesRepository(context);
     }
 
+
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ShoesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.shoes_view, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvId.setText(String.valueOf(shoesList.get(position).shoes_id));
+    public void onBindViewHolder(@NonNull ShoesAdapter.ViewHolder holder, int position) {
+        holder.tvId.setText(String.valueOf(position+1));
         holder.tvName.setText(shoesList.get(position).shoes_name);
-        holder.tvPrice.setText(String.valueOf(shoesList.get(position).price));
+        holder.tvPrice.setText("$"+String.valueOf(shoesList.get(position).price));
         if(shoesList.get(position).shoes_status == 0) {
             holder.tvStatus.setText("Unactive");
             holder.tvStatus.setTextColor(Color.RED);
@@ -65,16 +64,16 @@ public class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ViewHolder>{
         });
 
 
-
+        // Load ảnh bằng Picasso
         com.squareup.picasso.Picasso
                 .get()
-                .load(shoesList.get(position).img)
-                .placeholder(R.drawable.ic_launcher_background)
+                .load(shoesList.get(position).img) // Đường dẫn ảnh từ bộ nhớ trong
+                .placeholder(R.drawable.ic_launcher_background) // Ảnh mặc định nếu chưa có ảnh
                 .into(holder.img);
         if (holder.btnUpdate != null) {
             holder.btnUpdate.setOnClickListener(v -> {
                 Intent intent = new Intent(context, UpdateShoesInformationActivity.class);
-                intent.putExtra("SHOES_ID", shoesList.get(position).shoes_id);
+                intent.putExtra("SHOES_ID", shoesList.get(position).shoes_id);  // Truyền ID sản phẩm
                 intent.putExtra("SHOES_NAME", shoesList.get(position).shoes_name);
                 intent.putExtra("SHOES_PRICE", shoesList.get(position).price);
                 intent.putExtra("SHOES_IMG", shoesList.get(position).img);
@@ -95,8 +94,8 @@ public class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ViewHolder>{
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvId, tvName, tvPrice, tvStatus;
         ImageView img;
-        Button btnUpdate;
-        Button btnDelete;
+        Button btnUpdate, btnDelete;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             img = itemView.findViewById(R.id.imgProduct);
@@ -108,7 +107,6 @@ public class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ViewHolder>{
             btnDelete = itemView.findViewById(R.id.btnDelete);
         }
     }
-
     private void UpdateShoesStatus(Shoes shoes) {
         int newStatus = (shoes.getShoes_status() == 1) ? 0 : 1;
         shoesRepository.UpdateShoesStatus(shoes.getShoes_id(), newStatus);
@@ -117,4 +115,5 @@ public class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ViewHolder>{
         Toast.makeText(context, "Change Status successful!", Toast.LENGTH_SHORT).show();
 
     }
+
 }

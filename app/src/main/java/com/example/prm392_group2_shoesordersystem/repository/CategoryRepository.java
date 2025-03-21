@@ -22,4 +22,8 @@ public class CategoryRepository {
     public List<CategorySale> ListCategorySale() {
         return categoryDAO.ListCategorySale();
     }
+
+    public void insertCategory(Category category) {
+        categoryDAO.insertCategory(category);
+    }
 }

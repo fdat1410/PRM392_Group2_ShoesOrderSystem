@@ -1,4 +1,4 @@
-package com.example.prm392_group2_shoesordersystem.fragment;
+package com.example.prm392_group2_shoesordersystem.fragment.manager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,10 +13,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.prm392_group2_shoesordersystem.R;
-import com.example.prm392_group2_shoesordersystem.service.CreateSellerAccountActivity;
 import com.example.prm392_group2_shoesordersystem.adapter.AccountSellerAdapter;
 import com.example.prm392_group2_shoesordersystem.entity.Account;
 import com.example.prm392_group2_shoesordersystem.repository.AccountRepository;
+import com.example.prm392_group2_shoesordersystem.service.manager.CreateSellerAccountActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 

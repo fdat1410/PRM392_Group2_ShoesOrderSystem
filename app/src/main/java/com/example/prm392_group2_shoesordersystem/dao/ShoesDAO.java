@@ -41,5 +41,8 @@ public interface ShoesDAO {
             "               GROUP BY s.shoes_id,s.shoes_name,s.img\n" +
             "               ORDER BY item_bought DESC")
     List<ShoesSale> ListShoesSale();
+
+    @Query("SELECT * FROM Shoes WHERE shoes_id = :shoesId")
+    Shoes getShoeById(int shoesId);
 }
 

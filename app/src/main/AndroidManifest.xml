@@ -13,37 +13,61 @@
         android:theme="@style/Theme.PRM392_Group2_ShoesOrderSystem"
         tools:targetApi="31">
         <activity
-            android:name=".service.TopShoesActivity"
+            android:name=".service.seller.AddNewCategoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".service.seller.SellerDashboardActivity"
+            android:exported="true"
+            android:label="Seller Dashboard" />
+<!--        <activity-->
+<!--            android:name=".service.ViewOrderListActivity"-->
+<!--            android:exported="true"-->
+<!--            android:label="Order List" />-->
+        <activity
+            android:name=".service.seller.UpdateShoesInformationActivity"
+            android:exported="true"
+            android:label="Update Shoes Information"
+            android:parentActivityName=".service.seller.SellerDashboardActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".service.seller.SellerDashboardActivity" />
+        </activity>
+        <activity
+            android:name=".service.seller.AddNewShoesActivity"
+            android:exported="true"
+            android:label="Add New Shoes"
+            android:parentActivityName=".service.seller.SellerDashboardActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".service.seller.SellerDashboardActivity" />
+        </activity>
+        <activity
+            android:name=".service.manager.TopShoesActivity"
             android:exported="true" />
         <activity
-            android:name=".service.TopCustomerActivity"
+            android:name=".service.manager.TopCustomerActivity"
             android:exported="true" />
         <activity
-            android:name=".service.PerformanceByCategoryActivity"
+            android:name=".service.manager.PerformanceByCategoryActivity"
             android:exported="true" />
         <activity
-            android:name=".service.PerformanceByMonthActivity"
-            android:exported="true" />
-        <activity
-            android:name=".service.SellerDashboardActivity"
+            android:name=".service.manager.PerformanceByMonthActivity"
             android:exported="true" />
 
-        <activity
-            android:name=".service.UpdateShoesInformationActivity"
-            android:exported="true"
-            android:label="Update Shoes Information" />
+
+
 
         <activity
             android:name=".test.TestActivity"
             android:exported="true" />
         <activity
-            android:name=".service.CreateSellerAccountActivity"
+            android:name=".service.manager.CreateSellerAccountActivity"
             android:exported="true" />
         <activity
-            android:name=".service.ManagePageActivity"
+            android:name=".service.manager.ManagePageActivity"
             android:exported="true" />
         <activity
-            android:name="com.example.prm392_group2_shoesordersystem.service.LoginActivity"
+            android:name="com.example.prm392_group2_shoesordersystem.service.guest.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

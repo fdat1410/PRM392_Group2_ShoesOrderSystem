@@ -1,7 +1,13 @@
-package com.example.prm392_group2_shoesordersystem.service;
+package com.example.prm392_group2_shoesordersystem.service.manager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,19 +17,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.example.prm392_group2_shoesordersystem.R;
-import com.example.prm392_group2_shoesordersystem.fragment.ManagePageFragmentHome;
-import com.example.prm392_group2_shoesordersystem.fragment.ManagePageFragmentProfile;
-import com.example.prm392_group2_shoesordersystem.fragment.ManagePageFragmentSellerManagement;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.example.prm392_group2_shoesordersystem.entity.Account;
+import com.example.prm392_group2_shoesordersystem.fragment.manager.ManagePageFragmentHome;
+import com.example.prm392_group2_shoesordersystem.fragment.manager.ManagePageFragmentProfile;
+import com.example.prm392_group2_shoesordersystem.fragment.manager.ManagePageFragmentSellerManagement;
+import com.example.prm392_group2_shoesordersystem.service.guest.LoginActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class ManagePageActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;

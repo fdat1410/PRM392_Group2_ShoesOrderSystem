@@ -1,4 +1,4 @@
-package com.example.prm392_group2_shoesordersystem.service;
+package com.example.prm392_group2_shoesordersystem.service.guest;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +19,9 @@ import com.example.prm392_group2_shoesordersystem.entity.Account;
 import com.example.prm392_group2_shoesordersystem.repository.AccountRepository;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+
+import com.example.prm392_group2_shoesordersystem.service.manager.ManagePageActivity;
+import com.example.prm392_group2_shoesordersystem.service.seller.SellerDashboardActivity;
 import com.google.gson.Gson;
 
 public class LoginActivity extends AppCompatActivity {
@@ -108,8 +111,11 @@ public class LoginActivity extends AppCompatActivity {
 
                     Intent intent = null;
                     switch (accountRole) {
-                        case 2: // Manager
+                        case 2:
                             intent = new Intent(LoginActivity.this, ManagePageActivity.class);
+                            break;
+                        case 3:
+                            intent = new Intent(LoginActivity.this, SellerDashboardActivity.class);
                             break;
                         default:
                             Toast.makeText(this, "Invalid role selected!", Toast.LENGTH_SHORT).show();

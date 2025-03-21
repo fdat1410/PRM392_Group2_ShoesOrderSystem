@@ -1,11 +1,9 @@
-package com.example.prm392_group2_shoesordersystem.service;
-
+package com.example.prm392_group2_shoesordersystem.service.manager;
 
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.Toast;
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.prm392_group2_shoesordersystem.R;
 import com.example.prm392_group2_shoesordersystem.adapter.RevenueAdapter;
 import com.example.prm392_group2_shoesordersystem.entity.MonthSale;
-
 import com.example.prm392_group2_shoesordersystem.repository.OrderRepository;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.XAxis;
@@ -22,7 +19,7 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
-import com.github.mikephil.charting.utils.ColorTemplate;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
