@@ -144,6 +144,8 @@ public class AddNewShoesActivity extends AppCompatActivity {
                 sizeRepository.insertSize(new Size(i, 0, shoes_id));
             }
             Toast.makeText(this, "Add Shoes Successfully!", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, SellerDashboardActivity.class);
+            startActivity(intent);
         }catch (Exception e){
             Toast.makeText(this, "Add Shoes Failed!", Toast.LENGTH_SHORT).show();
         }

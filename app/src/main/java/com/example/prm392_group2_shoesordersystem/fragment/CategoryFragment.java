@@ -16,35 +16,39 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prm392_group2_shoesordersystem.R;
+import com.example.prm392_group2_shoesordersystem.adapter.CategoryAdapter;
 import com.example.prm392_group2_shoesordersystem.adapter.ShoesAdapter;
+import com.example.prm392_group2_shoesordersystem.entity.Category;
 import com.example.prm392_group2_shoesordersystem.entity.Shoes;
+import com.example.prm392_group2_shoesordersystem.repository.CategoryRepository;
 import com.example.prm392_group2_shoesordersystem.repository.ShoesRepository;
+import com.example.prm392_group2_shoesordersystem.service.AddNewCategoryActivity;
 import com.example.prm392_group2_shoesordersystem.service.AddNewShoesActivity;
 
 import java.util.List;
 
-public class HomeFragment extends Fragment {
+public class CategoryFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private Button btnAdd;
-    private ShoesRepository shoesRepository;;
+    private CategoryRepository categoryRepository;
     Context context = getContext();
     @SuppressLint("MissingInflatedId")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.home_fragment, container, false);
+        View view = inflater.inflate(R.layout.category_fragment, container, false);
         recyclerView = view.findViewById(R.id.recyclerView);
-        shoesRepository = new ShoesRepository(getContext());
-        List<Shoes> shoes =shoesRepository.getAllShoes();
-        ShoesAdapter shoesAdapter = new ShoesAdapter(requireContext(),shoes);
-        recyclerView.setAdapter(shoesAdapter);
+        categoryRepository = new CategoryRepository(getContext());
+        List<Category> categories =categoryRepository.getAllCategories();
+        CategoryAdapter categoryAdapter = new CategoryAdapter(requireContext(),categories, categoryRepository);
+        recyclerView.setAdapter(categoryAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         btnAdd = view.findViewById(R.id.btnAdd);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), AddNewShoesActivity.class);
+                Intent intent = new Intent(getActivity(), AddNewCategoryActivity.class);
                 startActivity(intent);
             }
         });

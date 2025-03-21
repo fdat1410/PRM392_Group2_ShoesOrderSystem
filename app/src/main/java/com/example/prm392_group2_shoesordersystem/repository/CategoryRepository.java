@@ -17,4 +17,16 @@ public class CategoryRepository {
     public List<Category> getAllCategories() {
         return categoryDAO.getAllCategories();
     }
+    public Category getCategoryById(int categoryId) {
+        return categoryDAO.getCategoryById(categoryId);
+    }
+    public void insertCategory(Category category) {
+        categoryDAO.insertCategory(category);
+    }
+    public void updateCategory(int categoryId, String categoryName) {
+        categoryDAO.updateCategory(categoryId, categoryName);
+    }
+    public void deleteCategory(int categoryId) {
+        categoryDAO.deleteCategory(categoryId);
+    }
 }

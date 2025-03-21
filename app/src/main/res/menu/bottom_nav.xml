@@ -5,11 +5,15 @@
         android:id="@+id/action_home"
         android:title="Home"/>
     <item
+        android:icon="@drawable/category_24px"
+        android:id="@+id/action_category"
+        android:title="Category"/>
+    <item
         android:icon="@drawable/groups_24px"
-        android:id="@+id/action_fav"
-        android:title="Customer Accounts"/>
+        android:id="@+id/action_customer_account"
+        android:title="Account"/>
     <item
         android:icon="@drawable/shopping_bag_24px"
-        android:id="@+id/action_profile"
-        android:title="Orders"/>
+        android:id="@+id/action_orders"
+        android:title="Order"/>
 </menu>

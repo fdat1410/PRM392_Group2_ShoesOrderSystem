@@ -43,9 +43,9 @@ public class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ShoesAdapter.ViewHolder holder, int position) {
-        holder.tvId.setText(String.valueOf(shoesList.get(position).shoes_id));
+        holder.tvId.setText(String.valueOf(position+1));
         holder.tvName.setText(shoesList.get(position).shoes_name);
-        holder.tvPrice.setText(String.valueOf(shoesList.get(position).price));
+        holder.tvPrice.setText("$"+String.valueOf(shoesList.get(position).price));
         if(shoesList.get(position).shoes_status == 0) {
             holder.tvStatus.setText("Unactive");
             holder.tvStatus.setTextColor(Color.RED);

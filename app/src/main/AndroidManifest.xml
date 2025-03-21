@@ -13,8 +13,12 @@
         android:theme="@style/Theme.PRM392_Group2_ShoesOrderSystem"
         tools:targetApi="31">
         <activity
+            android:name=".service.AddNewCategoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".service.SellerDashboardActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Seller Dashboard" />
         <activity
             android:name=".service.ViewOrderListActivity"
             android:exported="true"
@@ -31,7 +35,12 @@
         <activity
             android:name=".service.AddNewShoesActivity"
             android:exported="true"
-            android:label="Add New Shoes" />
+            android:label="Add New Shoes"
+            android:parentActivityName=".service.SellerDashboardActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".service.SellerDashboardActivity" />
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
