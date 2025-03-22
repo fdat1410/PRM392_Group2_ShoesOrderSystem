@@ -19,4 +19,7 @@ public interface OrderDAO {
             "JOIN Order_detail od ON s.shoes_id = od.shoes_id " +
             "WHERE od.order_id = :orderId")
     List<ShoesOrderDetail> getShoesOrderDetails(int orderId);
+
+    @Query("SELECT * FROM [Order]")
+    List<Order> getAllOrders();
 }

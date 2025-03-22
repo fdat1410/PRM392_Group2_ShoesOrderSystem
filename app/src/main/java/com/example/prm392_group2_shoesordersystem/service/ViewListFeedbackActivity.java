@@ -33,7 +33,7 @@ public class ViewListFeedbackActivity extends AppCompatActivity {
     private Button btnSendFeedback;
     private FeedbackRepository repository;
     private ShoesRepository shoesRepository;
-    private int shoesId = 2;
+    private int shoesId = 6;
     private ImageView imgShoes;
     private TextView tvShoesName;
     private TextView tvShoesPrice;

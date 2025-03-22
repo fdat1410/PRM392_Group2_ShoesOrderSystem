@@ -15,7 +15,7 @@
         <activity
             android:name=".service.TrackOrderActivity"
             android:theme="@style/Theme.MyApp"
-            android:label="Create Clothes"
+            android:label="Track Order"
             android:parentActivityName=".service.ViewListCustomerOrderActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

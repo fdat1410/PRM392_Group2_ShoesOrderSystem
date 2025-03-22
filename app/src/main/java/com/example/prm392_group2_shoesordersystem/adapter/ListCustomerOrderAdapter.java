@@ -59,6 +59,7 @@ public class ListCustomerOrderAdapter extends RecyclerView.Adapter<ListCustomerO
             intent.putExtra("order_date", order.getOrder_date().toString());
             intent.putExtra("total_price", order.getTotalPrice());
             intent.putExtra("account_id", order.getAccount_id());
+            intent.putExtra("order_status", order.getOrd_status());
             context.startActivity(intent);
         });
 

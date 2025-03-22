@@ -30,4 +30,7 @@ public class OrderRepository {
     public List<ShoesOrderDetail> getShoesOrderDetails(int orderId) {
         return orderDao.getShoesOrderDetails(orderId);
     }
+    public List<Order> getOrders() {
+        return orderDao.getAllOrders();
+    }
 }

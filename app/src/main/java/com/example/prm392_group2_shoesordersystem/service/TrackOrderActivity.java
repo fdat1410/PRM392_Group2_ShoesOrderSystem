@@ -2,6 +2,7 @@ package com.example.prm392_group2_shoesordersystem.service;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -27,6 +28,7 @@ public class TrackOrderActivity extends AppCompatActivity {
 
     private TextView tvName, tvPhone, tvAddress, tvNote, tvPaymentStatus, tvOrderDate;
     private RecyclerView recyclerView;
+    private Button btnDelete;
     private TextView tvTotal;
     private AccountRepository accountRepository;
     private OrderRepository orderRepository;
@@ -45,6 +47,7 @@ public class TrackOrderActivity extends AppCompatActivity {
         tvOrderDate = findViewById(R.id.tvOrderDate);
         recyclerView = findViewById(R.id.recyclerView);
         tvTotal = findViewById(R.id.tvTotal);
+        btnDelete = findViewById(R.id.btnDeleteOrder);
 
         // Lấy dữ liệu từ Intent
         int orderId = getIntent().getIntExtra("order_id", -1);  // -1 là giá trị mặc định nếu không có dữ liệu
@@ -54,6 +57,13 @@ public class TrackOrderActivity extends AppCompatActivity {
         String orderDate = getIntent().getStringExtra("order_date");
         double totalPrice = getIntent().getDoubleExtra("total_price", 0.0);
         int accountId = getIntent().getIntExtra("account_id", -1);
+        int orderStatus = getIntent().getIntExtra("order_status", -1);
+
+        if (orderStatus == 0) { // Giả sử 0 là trạng thái "Pending"
+            btnDelete.setVisibility(View.VISIBLE);
+        } else {
+            btnDelete.setVisibility(View.GONE);
+        }
 
         // Hiển thị dữ liệu đơn hàng
         tvAddress.setText(address);
