@@ -1,4 +1,4 @@
-package com.example.prm392_group2_shoesordersystem;
+package com.example.prm392_group2_shoesordersystem.service;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.prm392_group2_shoesordersystem.R;
 import com.example.prm392_group2_shoesordersystem.entity.Account;
 import com.example.prm392_group2_shoesordersystem.repository.AccountRepository;
 
@@ -178,6 +179,17 @@ public class UpdateProfileActivity extends AppCompatActivity {
         // Kiểm tra dữ liệu hợp lệ
         if(fullName.isEmpty() || phone.isEmpty() || dob.isEmpty() || address.isEmpty()){
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        // Kiểm tra tên chỉ chứa chữ cái và khoảng trắng
+        if (!fullName.matches("^[a-zA-Z\\s]+$")) {
+            Toast.makeText(this, "Full name should contain only letters", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Kiểm tra số điện thoại chỉ chứa số và có độ dài hợp lệ
+        if (!phone.matches("^[0-9]{10,15}$")) {
+            Toast.makeText(this, "Phone number should contain only digits (10-15 characters)", Toast.LENGTH_SHORT).show();
             return;
         }
 

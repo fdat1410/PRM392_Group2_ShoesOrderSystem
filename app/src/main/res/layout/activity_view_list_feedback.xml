@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@android:color/white"
     android:orientation="vertical"
-    tools:context=".ViewListFeedbackActivity">
+    tools:context=".service.ViewListFeedbackActivity">
 
 <!--    Thanh tiêu đề-->
     <LinearLayout
@@ -107,7 +107,7 @@
         android:id="@+id/tvNoFeedback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Không có đánh giá nào"
+        android:text="Haven't order"
         android:textSize="16sp"
         android:textColor="@color/black"
         android:visibility="gone"

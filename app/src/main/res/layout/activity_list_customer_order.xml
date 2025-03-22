@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--    Thanh tiêu đề-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <!-- Nút Back -->
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="5dp"
+            android:src="@drawable/ic_back" />
+
+        <!-- Tiêu đề -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:text="List Customer Order"
+            android:textColor="@android:color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!--        Danh sách Order-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order List"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:paddingTop="10dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerOrder"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"/>
+    <TextView
+        android:id="@+id/tvNoFeedback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Không có đánh giá nào"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:padding="16dp"/>
+<!--    Footer Button-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="📞 Contact Shipper"
+            android:backgroundTint="#FF9800"
+            android:textColor="@android:color/white"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="❓ Support"
+            android:backgroundTint="#03A9F4"
+            android:textColor="@android:color/white"
+            android:layout_marginStart="10dp"/>
+
+    </LinearLayout>
+</LinearLayout>

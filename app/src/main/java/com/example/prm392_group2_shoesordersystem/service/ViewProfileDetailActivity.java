@@ -1,14 +1,14 @@
-package com.example.prm392_group2_shoesordersystem;
+package com.example.prm392_group2_shoesordersystem.service;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.prm392_group2_shoesordersystem.R;
 import com.example.prm392_group2_shoesordersystem.entity.Account;
 import com.example.prm392_group2_shoesordersystem.repository.AccountRepository;
 
@@ -71,16 +71,16 @@ public class ViewProfileDetailActivity extends AppCompatActivity {
                         String roleText;
                         switch (account.getRole()) {
                             case 0:
-                                roleText = "Admin";
-                                break;
-                            case 1:
                                 roleText = "Customer";
                                 break;
+                            case 1:
+                                roleText = "Admin";
+                                break;
                             case 2:
-                                roleText = "Seller";
+                                roleText = "Manager";
                                 break;
                             case 3:
-                                roleText = "Manager";
+                                roleText = "Seller";
                                 break;
                             default:
                                 roleText = "Unknown Role";

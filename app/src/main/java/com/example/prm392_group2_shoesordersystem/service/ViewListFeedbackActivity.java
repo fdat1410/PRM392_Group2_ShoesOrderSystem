@@ -1,7 +1,6 @@
-package com.example.prm392_group2_shoesordersystem;
+package com.example.prm392_group2_shoesordersystem.service;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,12 +15,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.prm392_group2_shoesordersystem.R;
 import com.example.prm392_group2_shoesordersystem.adapter.ShoesFeedbackAdapter;
-import com.example.prm392_group2_shoesordersystem.dao.AppDatabase;
-import com.example.prm392_group2_shoesordersystem.entity.Account;
 import com.example.prm392_group2_shoesordersystem.entity.Shoes;
 import com.example.prm392_group2_shoesordersystem.entity.Shoes_Feedback;
-import com.example.prm392_group2_shoesordersystem.repository.AccountRepository;
 import com.example.prm392_group2_shoesordersystem.repository.FeedbackRepository;
 import com.example.prm392_group2_shoesordersystem.repository.ShoesRepository;
 

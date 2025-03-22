@@ -6,4 +6,9 @@
     </style>
 
     <style name="Theme.PRM392_Group2_ShoesOrderSystem" parent="Base.Theme.PRM392_Group2_ShoesOrderSystem" />
+
+    <style name="Theme.MyApp" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#433C3C</item>  <!-- Màu nền của ActionBar -->
+        <item name="colorPrimaryDark">#423939</item> <!-- Màu của StatusBar -->
+    </style>
 </resources>

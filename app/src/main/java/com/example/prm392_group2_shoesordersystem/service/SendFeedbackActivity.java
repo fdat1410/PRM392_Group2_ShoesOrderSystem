@@ -1,4 +1,4 @@
-package com.example.prm392_group2_shoesordersystem;
+package com.example.prm392_group2_shoesordersystem.service;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,16 +10,11 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.example.prm392_group2_shoesordersystem.entity.Shoes;
+import com.example.prm392_group2_shoesordersystem.R;
 import com.example.prm392_group2_shoesordersystem.entity.Shoes_Feedback;
 import com.example.prm392_group2_shoesordersystem.repository.FeedbackRepository;
-import com.example.prm392_group2_shoesordersystem.repository.ShoesRepository;
 
 public class SendFeedbackActivity extends AppCompatActivity {
     private ImageView btnBack;

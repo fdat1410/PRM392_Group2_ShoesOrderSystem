@@ -6,16 +6,19 @@ import androidx.room.RoomDatabase;
 
 import com.example.prm392_group2_shoesordersystem.entity.Account;
 import com.example.prm392_group2_shoesordersystem.entity.Category;
+import com.example.prm392_group2_shoesordersystem.entity.Order;
+import com.example.prm392_group2_shoesordersystem.entity.Order_detail;
 import com.example.prm392_group2_shoesordersystem.entity.Shoes;
 import com.example.prm392_group2_shoesordersystem.entity.Shoes_Feedback;
 
-@Database(entities = {Account.class, Shoes_Feedback.class, Shoes.class, Category.class}, version = 2, exportSchema = false)
+@Database(entities = {Account.class, Shoes_Feedback.class, Shoes.class, Category.class, Order.class, Order_detail.class}, version = 3, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase instance;
 
     public abstract AccountDAO accountDao();
     public abstract FeedbackDAO feedbackDao();
     public abstract ShoesDAO shoesDao();
+    public abstract OrderDAO orderDao();
 
     public static synchronized AppDatabase getInstance(Context context) {
         if (instance == null) {
