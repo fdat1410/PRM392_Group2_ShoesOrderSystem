@@ -115,23 +115,31 @@ public class SendFeedbackActivity extends AppCompatActivity {
             return;
         }
 
-        // Tạo đối tượng Feedback
-        Shoes_Feedback feedback = new Shoes_Feedback();
-        feedback.shoes_id = shoesId;
-        feedback.account_id = userId;
-        feedback.star = (int) rating;
-        feedback.comment = comment;
+        // Kiểm tra xem người dùng đã đánh giá chưa
+        feedbackRepository.checkIfUserReviewed(userId, shoesId, hasReviewed -> {
+            if (hasReviewed > 0) {
+                // Nếu đã đánh giá, thông báo lỗi và dừng lại
+                runOnUiThread(() -> Toast.makeText(this, "You have already rated this product. Please come back!", Toast.LENGTH_SHORT).show());
+            } else {
+                // Nếu chưa đánh giá, tiến hành gửi đánh giá
+                Shoes_Feedback feedback = new Shoes_Feedback();
+                feedback.shoes_id = shoesId;
+                feedback.account_id = userId;
+                feedback.star = (int) rating;
+                feedback.comment = comment;
 
-        // Insert vào database
-        feedbackRepository.insertFeedback(feedback);
+                feedbackRepository.insertFeedback(feedback);
 
-        // Thông báo thành công
-        Toast.makeText(this, "Feedback sent!", Toast.LENGTH_LONG).show();
-
-        // Chuyển sang trang danh sách phản hồi
-        Intent feedbackListIntent = new Intent(SendFeedbackActivity.this, ViewListFeedbackActivity.class);
-        startActivity(feedbackListIntent);
-        finish();
+                // Thông báo thành công
+                runOnUiThread(() -> {
+                    Toast.makeText(this, "Feedback sent!", Toast.LENGTH_LONG).show();
+                    // Chuyển sang trang danh sách phản hồi
+                    Intent feedbackListIntent = new Intent(SendFeedbackActivity.this, ViewListFeedbackActivity.class);
+                    startActivity(feedbackListIntent);
+                    finish();
+                });
+            }
+        });
     }
 
 }

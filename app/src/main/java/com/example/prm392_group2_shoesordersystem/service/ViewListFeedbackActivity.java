@@ -33,7 +33,7 @@ public class ViewListFeedbackActivity extends AppCompatActivity {
     private Button btnSendFeedback;
     private FeedbackRepository repository;
     private ShoesRepository shoesRepository;
-    private int shoesId = 6;
+    private int shoesId = 1;
     private ImageView imgShoes;
     private TextView tvShoesName;
     private TextView tvShoesPrice;
@@ -68,6 +68,9 @@ public class ViewListFeedbackActivity extends AppCompatActivity {
         feedbackAdapter = new ShoesFeedbackAdapter(feedbackList);
         recyclerFeedback.setLayoutManager(new LinearLayoutManager(this));
         recyclerFeedback.setAdapter(feedbackAdapter);
+
+        // Gọi kiểm tra quyền hiển thị nút Send Feedback
+        checkIfUserCanSendFeedback();
 
         btnSendFeedback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -167,6 +170,21 @@ public class ViewListFeedbackActivity extends AppCompatActivity {
                     }
                 });
             }
+        });
+    }
+    private void checkIfUserCanSendFeedback() {
+        int accountId = 1; // Cần lấy ID của user đăng nhập thực tế
+
+        repository.checkUserPurchasedShoes(accountId, shoesId, hasPurchased -> {
+            repository.getUserRole(accountId, role -> {
+                runOnUiThread(() -> {
+                    if (hasPurchased > 0 && role == 0) {
+                        btnSendFeedback.setVisibility(View.VISIBLE);
+                    } else {
+                        btnSendFeedback.setVisibility(View.GONE);
+                    }
+                });
+            });
         });
     }
 }
