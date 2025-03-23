@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".service.DeleteOrderActivity"
+    android:orientation="vertical">
+
+    <!-- Thông tin đơn hàng -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="10dp">
+        <TextView
+            android:id="@+id/tvOrderCodeLabel"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Order ID: "
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:id="@+id/tvOrderCode"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="1"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="10dp">
+        <TextView
+            android:id="@+id/tvOrderDateLabel"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Order Date: "
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:id="@+id/tvOrderDate"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="20/03/2003"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="10dp">
+        <TextView
+            android:id="@+id/tvOrderStatusLabel"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Order Status: "
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:id="@+id/tvOrderStatus"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Pending"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+
+    <!-- Comment Box -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter reason delete order"
+        android:textSize="22sp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/edtComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your reason"
+        android:minHeight="150dp"
+        android:background="@android:drawable/editbox_background"
+        android:padding="8dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:gravity="top|start"
+        android:inputType="textMultiLine"
+        android:scrollbars="vertical"/>
+
+    <!-- Send Button -->
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Send"
+        android:layout_gravity="center"
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:textColor="@android:color/white"
+        android:padding="8dp"
+        android:textSize="20dp"
+        android:layout_marginTop="50dp"/>
+
+</LinearLayout>

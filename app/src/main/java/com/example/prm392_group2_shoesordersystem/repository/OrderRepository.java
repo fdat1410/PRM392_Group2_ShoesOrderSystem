@@ -30,7 +30,8 @@ public class OrderRepository {
     public List<ShoesOrderDetail> getShoesOrderDetails(int orderId) {
         return orderDao.getShoesOrderDetails(orderId);
     }
-    public List<Order> getOrders() {
-        return orderDao.getAllOrders();
+    public void deleteOrderById(int orderId) {
+        executorService.execute(() -> orderDao.deleteOrderWithDetails(orderId));
     }
+
 }

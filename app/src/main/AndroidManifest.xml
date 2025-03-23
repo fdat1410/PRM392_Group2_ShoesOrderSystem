@@ -13,13 +13,22 @@
         android:theme="@style/Theme.PRM392_Group2_ShoesOrderSystem"
         tools:targetApi="31">
         <activity
-            android:name=".service.TrackOrderActivity"
-            android:theme="@style/Theme.MyApp"
-            android:label="Track Order"
-            android:parentActivityName=".service.ViewListCustomerOrderActivity">
+            android:name=".service.DeleteOrderActivity"
+            android:label="Delete Order"
+            android:parentActivityName=".service.TrackOrderActivity"
+            android:theme="@style/Theme.MyApp">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".service.ViewListCustomerOrderActivity"/>
+                android:value=".service.TrackOrderActivity" />
+        </activity>
+        <activity
+            android:name=".service.TrackOrderActivity"
+            android:label="Track Order"
+            android:parentActivityName=".service.ViewListCustomerOrderActivity"
+            android:theme="@style/Theme.MyApp">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".service.ViewListCustomerOrderActivity" />
         </activity>
         <activity
             android:name=".service.ViewListFeedbackActivity"

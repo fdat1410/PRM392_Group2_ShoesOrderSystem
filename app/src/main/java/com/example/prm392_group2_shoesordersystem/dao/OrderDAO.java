@@ -1,10 +1,13 @@
 package com.example.prm392_group2_shoesordersystem.dao;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
+import androidx.room.Insert;
 import androidx.room.Query;
 
 import com.example.prm392_group2_shoesordersystem.entity.Order;
 import com.example.prm392_group2_shoesordersystem.entity.ShoesOrderDetail;
+import com.example.prm392_group2_shoesordersystem.entity.Shoes_Feedback;
 
 import java.util.List;
 import java.util.Map;
@@ -20,6 +23,14 @@ public interface OrderDAO {
             "WHERE od.order_id = :orderId")
     List<ShoesOrderDetail> getShoesOrderDetails(int orderId);
 
-    @Query("SELECT * FROM [Order]")
-    List<Order> getAllOrders();
+    @Query("DELETE FROM Order_detail WHERE order_id = :orderId")
+    void deleteOrderDetailsByOrderId(int orderId);
+
+    @Query("DELETE FROM `Order` WHERE order_id = :orderId")
+    void deleteOrderById(int orderId);
+
+    default void deleteOrderWithDetails(int orderId) {
+        deleteOrderDetailsByOrderId(orderId);
+        deleteOrderById(orderId);
+    }
 }

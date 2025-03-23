@@ -1,5 +1,6 @@
 package com.example.prm392_group2_shoesordersystem.service;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -64,6 +65,13 @@ public class TrackOrderActivity extends AppCompatActivity {
         } else {
             btnDelete.setVisibility(View.GONE);
         }
+        btnDelete.setOnClickListener(view -> {
+            Intent intent = new Intent(TrackOrderActivity.this, DeleteOrderActivity.class);
+            intent.putExtra("order_id", orderId);
+            intent.putExtra("order_status", orderStatus);
+            intent.putExtra("order_date", orderDate);
+            startActivity(intent);
+        });
 
         // Hiển thị dữ liệu đơn hàng
         tvAddress.setText(address);
@@ -88,6 +96,8 @@ public class TrackOrderActivity extends AppCompatActivity {
         if (orderId != -1) {
             loadShoesOrderList(orderId);
         }
+
+
     }
 
     private void loadCustomerInfo(int accountId) {
