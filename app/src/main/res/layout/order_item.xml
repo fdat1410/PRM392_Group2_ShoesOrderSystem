@@ -25,10 +25,23 @@
         />
 
     <!-- Trạng thái đơn hàng -->
+
+    <Button
+        android:id="@+id/btnApprove"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:text="Approve"
+        app:tint="@color/primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_order_status"
+        app:layout_constraintTop_toBottomOf="@+id/tv_order_status" />
+
     <TextView
         android:id="@+id/tv_order_status"
-        android:layout_width="wrap_content"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
+        android:gravity="end"
         android:text="Hoàn thành"
         android:textColor="@color/status_color"
         android:textSize="14sp"
@@ -39,18 +52,19 @@
 
 
     <!-- RecyclerView danh sách sản phẩm -->
+
+    <!-- Nút xem thêm -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_order_items"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:overScrollMode="never"
         android:nestedScrollingEnabled="false"
-        app:layout_constraintTop_toBottomOf="@id/tvId"
-        app:layout_constraintStart_toStartOf="parent"
+        android:overScrollMode="never"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnApprove" />
 
-    <!-- Nút xem thêm -->
     <TextView
         android:id="@+id/tv_see_more"
         android:layout_width="wrap_content"

@@ -1,9 +1,31 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.PRM392_Group2_ShoesOrderSystem" parent="Theme.AppCompat.DayNight.DarkActionBar">
+    <style name="Base.Theme.PRM392_Group2_ShoesOrderSystem" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
+    <style name="Theme.MyActionBar" parent="Theme.MaterialComponents.DayNight">
+        <!-- Giữ nguyên màu mặc định của ứng dụng -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/gray</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Chỉ thay đổi màu ActionBar -->
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+    </style>
+
+    <!-- Style riêng cho ActionBar -->
+    <style name="MyActionBar" parent="Widget.MaterialComponents.ActionBar.Solid">
+        <item name="android:background">@color/primary</item> <!-- Đổi màu ActionBar -->
+    </style>
+
     <style name="Theme.PRM392_Group2_ShoesOrderSystem" parent="Base.Theme.PRM392_Group2_ShoesOrderSystem" />
+    <style name="Theme.PRM392_Group2_ShoesOrderSystem.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.PRM392_Group2_ShoesOrderSystem.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.MyApp" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#433C3C</item>  <!-- Màu nền của ActionBar -->
+        <item name="colorPrimaryDark">#423939</item> <!-- Màu của StatusBar -->
+    </style>
 </resources>

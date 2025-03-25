@@ -44,13 +44,25 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         holder.tvOrderId.setText("Order ID: #" + order.order_id);
         //holder.tvOrderStatus.setText((order.ord_status == 1 ? "Done" : "Processing"));
         if (order.ord_status == 1) {
-            holder.tvOrderStatus.setText("Done");
+            holder.tvOrderStatus.setText("Approved");
             holder.tvOrderStatus.setSelected(true);  // Áp dụng màu xanh
+            holder.btnApproveOrder.setVisibility(View.GONE);
         } else {
-            holder.tvOrderStatus.setText("Processing");
+            holder.tvOrderStatus.setText("Pending");
             holder.tvOrderStatus.setSelected(false); // Áp dụng màu vàng
+            holder.btnApproveOrder.setVisibility(View.VISIBLE);
         }
         holder.tvTotalPrice.setText("Total: $" + order.totalPrice);
+
+        holder.btnApproveOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                orderRepository.approveOrder(order.order_id);
+                order.setOrd_status(1);
+                orders.set(position, order);
+                notifyItemChanged(position);
+            }
+        });
 
         new Thread(() -> {
             List<Order_detail> details = orderRepository.getOrderDetails(order.order_id);
@@ -95,6 +107,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         TextView tvOrderId, tvTotalPrice, tvOrderStatus;
         RecyclerView recyclerView;
         TextView btnSeeMore;
+        Button btnApproveOrder;
 
         public OrderViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -103,6 +116,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
             tvOrderStatus = itemView.findViewById(R.id.tv_order_status);
             recyclerView = itemView.findViewById(R.id.recycler_view_order_items);
             btnSeeMore = itemView.findViewById(R.id.tv_see_more);
+            btnApproveOrder = itemView.findViewById(R.id.btnApprove);
         }
     }
 }

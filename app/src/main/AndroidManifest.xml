@@ -12,37 +12,180 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PRM392_Group2_ShoesOrderSystem"
         tools:targetApi="31">
+
         <activity
-            android:name=".service.AddNewCategoryActivity"
-            android:exported="false" />
+            android:name=".service.customer.CartActivity"
+            android:exported="true" />
         <activity
-            android:name=".service.SellerDashboardActivity"
+            android:name=".service.customer.VnpayWebViewActivity"
+            android:exported="true" />
+        <activity
+            android:name=".service.customer.CheckOutActivity"
+            android:label="Checkout"
+            android:parentActivityName=".service.customer.ManageCustomerDashboardActivity"
+            android:theme="@style/Theme.MyApp">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".service.customer.ManageCustomerDashboardActivity" />
+        </activity>
+        <activity
+            android:name=".service.guest.OTPVerificationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".service.customer.DeleteOrderActivity"
+            android:label="Delete Order"
+            android:parentActivityName=".service.customer.TrackOrderActivity"
+            android:theme="@style/Theme.MyApp">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".service.customer.TrackOrderActivity" />
+        </activity>
+        <activity
+            android:name=".service.guest.ForgotPasswordActivity"
+            android:theme="@style/Theme.MyApp"
+            android:label="Forgot Password"
+            android:parentActivityName=".service.guest.LoginActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".service.guest.LoginActivity"/>
+        </activity>
+        <activity
+            android:name=".service.customer.ChangePasswordActivity"
+            android:label="Change Password"
+            android:parentActivityName=".service.customer.ManageCustomerDashboardActivity"
+            android:theme="@style/Theme.MyApp">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".service.customer.ManageCustomerDashboardActivity" />
+        </activity>
+        <activity
+            android:name=".service.customer.ManageCustomerDashboardActivity"
+            android:label="Customer Page"
+            android:exported="true" />
+        <activity
+            android:name=".service.customer.SendFeedbackActivity"
+            android:exported="true" />
+        <activity
+            android:name=".service.guest.RegisterActivity"
+            android:theme="@style/Theme.MyApp"
+            android:label="Register"
+            android:parentActivityName=".service.guest.LoginActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".service.guest.LoginActivity"/>
+        </activity>
+        <activity
+            android:name=".service.customer.TrackOrderActivity"
+            android:theme="@style/Theme.MyApp"
+            android:label="Track Order"
+            android:parentActivityName=".service.customer.ViewListCustomerOrderActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".service.customer.ViewListCustomerOrderActivity"/>
+        </activity>
+        <activity
+            android:name=".service.customer.ViewListFeedbackActivity"
+            android:theme="@style/Theme.MyActionBar"
+            android:label="Shoes Feedbacks"
+            android:parentActivityName=".service.customer.ManageCustomerDashboardActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".service.customer.ManageCustomerDashboardActivity"/>
+        </activity>
+
+        <activity
+            android:name=".service.customer.UpdateProfileActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".service.customer.ViewListCustomerOrderActivity"
+            android:exported="true" />
+        <activity
+            android:name=".service.customer.ViewProfileDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".service.guest.SizeGuideActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".service.guest.ViewShoesDetailActivity"
+            android:label="Shoes Detail"
+            android:parentActivityName=".service.customer.ManageCustomerDashboardActivity"
+            android:theme="@style/Theme.MyActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".service.customer.ManageCustomerDashboardActivity" />
+        </activity>
+
+        <activity
+            android:name=".service.guest.SearchActivity"
+            android:exported="true" />
+        <activity
+            android:name=".service.seller.AddNewCategoryActivity"
             android:exported="true"
+            android:label="Add New Category"
+            android:theme="@style/Theme.MyActionBar"
+            android:parentActivityName=".service.seller.SellerDashboardActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".service.seller.SellerDashboardActivity" />
+        </activity>
+        <activity
+            android:name=".service.seller.SellerDashboardActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MyActionBar"
             android:label="Seller Dashboard" />
+<!--        <activity-->
+<!--            android:name=".service.ViewOrderListActivity"-->
+<!--            android:exported="true"-->
+<!--            android:label="Order List" />-->
         <activity
-            android:name=".service.ViewOrderListActivity"
-            android:exported="true"
-            android:label="Order List" />
-        <activity
-            android:name=".service.UpdateShoesInformationActivity"
+            android:name=".service.seller.UpdateShoesInformationActivity"
             android:exported="true"
             android:label="Update Shoes Information"
-            android:parentActivityName=".service.SellerDashboardActivity">
+            android:theme="@style/Theme.MyActionBar"
+            android:parentActivityName=".service.seller.SellerDashboardActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".service.SellerDashboardActivity" />
+                android:value=".service.seller.SellerDashboardActivity" />
         </activity>
         <activity
-            android:name=".service.AddNewShoesActivity"
+            android:name=".service.seller.AddNewShoesActivity"
             android:exported="true"
             android:label="Add New Shoes"
-            android:parentActivityName=".service.SellerDashboardActivity">
+            android:theme="@style/Theme.MyActionBar"
+            android:parentActivityName=".service.seller.SellerDashboardActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".service.SellerDashboardActivity" />
+                android:value=".service.seller.SellerDashboardActivity" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".service.manager.TopShoesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".service.manager.TopCustomerActivity"
+            android:exported="true" />
+        <activity
+            android:name=".service.manager.PerformanceByCategoryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".service.manager.PerformanceByMonthActivity"
+            android:exported="true" />
+
+
+
+
+        <activity
+            android:name=".test.TestActivity"
+            android:exported="true" />
+        <activity
+            android:name=".service.manager.CreateSellerAccountActivity"
+            android:exported="true" />
+        <activity
+            android:name=".service.manager.ManagePageActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.example.prm392_group2_shoesordersystem.service.guest.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -50,6 +193,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
 </manifest>

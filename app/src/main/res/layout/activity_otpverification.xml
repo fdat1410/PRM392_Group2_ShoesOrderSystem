@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal"
+    android:background="#F9F9F9"
+    tools:context=".service.OTPVerificationActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OTP Verification"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="#333"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText
+        android:id="@+id/edtOTP"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:inputType="number"
+        android:gravity="center"
+        android:background="@android:drawable/editbox_background"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/btnSaveOTP"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Save"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"/>
+</LinearLayout>

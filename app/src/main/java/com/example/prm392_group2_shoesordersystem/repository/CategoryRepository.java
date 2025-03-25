@@ -5,6 +5,7 @@ import android.content.Context;
 import com.example.prm392_group2_shoesordersystem.dao.AppDatabase;
 import com.example.prm392_group2_shoesordersystem.dao.CategoryDAO;
 import com.example.prm392_group2_shoesordersystem.entity.Category;
+import com.example.prm392_group2_shoesordersystem.entity.CategorySale;
 
 import java.util.List;
 
@@ -17,16 +18,12 @@ public class CategoryRepository {
     public List<Category> getAllCategories() {
         return categoryDAO.getAllCategories();
     }
-    public Category getCategoryById(int categoryId) {
-        return categoryDAO.getCategoryById(categoryId);
+
+    public List<CategorySale> ListCategorySale() {
+        return categoryDAO.ListCategorySale();
     }
+
     public void insertCategory(Category category) {
         categoryDAO.insertCategory(category);
-    }
-    public void updateCategory(int categoryId, String categoryName) {
-        categoryDAO.updateCategory(categoryId, categoryName);
-    }
-    public void deleteCategory(int categoryId) {
-        categoryDAO.deleteCategory(categoryId);
     }
 }

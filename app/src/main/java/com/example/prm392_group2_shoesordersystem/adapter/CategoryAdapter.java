@@ -1,11 +1,9 @@
 package com.example.prm392_group2_shoesordersystem.adapter;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,9 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prm392_group2_shoesordersystem.R;
-import com.example.prm392_group2_shoesordersystem.entity.Account;
 import com.example.prm392_group2_shoesordersystem.entity.Category;
-import com.example.prm392_group2_shoesordersystem.repository.AccountRepository;
 import com.example.prm392_group2_shoesordersystem.repository.CategoryRepository;
 
 import java.util.List;
@@ -33,13 +29,13 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     @NonNull
     @Override
-    public CategoryAdapter.CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_category, parent, false);
-        return new CategoryAdapter.CategoryViewHolder(view);
+        return new CategoryViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategoryAdapter.CategoryViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
         holder.tvNo.setText(String.valueOf(position + 1));
         holder.tvCategory.setText(categories.get(position).category_name);
         holder.btnEdit.setOnClickListener(v -> {

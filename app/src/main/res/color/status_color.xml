@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Màu xanh khi trạng thái là "Done" -->
-    <item android:color="@color/green" android:state_selected="true"/>
+    <item android:color="@color/primary" android:state_selected="true"/>
 
     <!-- Màu vàng khi trạng thái là "Processing" -->
     <item android:color="@color/bottom_nav"/>

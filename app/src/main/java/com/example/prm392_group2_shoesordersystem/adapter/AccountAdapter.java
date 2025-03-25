@@ -32,22 +32,23 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.ViewHold
 
     @NonNull
     @Override
-    public AccountAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.customer_account_view, parent, false);
-        return new AccountAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AccountAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.tvNo.setText(String.valueOf(position + 1));
         holder.tvName.setText(accounts.get(position).fullname);
         holder.tvEmail.setText(accounts.get(position).email);
         // Check status to set button text
         if (accounts.get(position).acc_status == 0) {
             holder.btnStatus.setText("UNBLOCK");
-            holder.btnStatus.setBackgroundColor(Color.GREEN);
+            holder.btnStatus.setSelected(true);
         } else {
             holder.btnStatus.setText("BLOCK");
-            holder.btnStatus.setBackgroundColor(Color.RED);
+            holder.btnStatus.setSelected(false);
         }
         holder.btnStatus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,10 +79,11 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvName, tvEmail;
+        TextView tvName, tvEmail, tvNo;
         Button btnStatus;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            tvNo = itemView.findViewById(R.id.tvNo);
             tvName = itemView.findViewById(R.id.tvName);
             tvEmail = itemView.findViewById(R.id.tvEmail);
             btnStatus = itemView.findViewById(R.id.btnStatus);

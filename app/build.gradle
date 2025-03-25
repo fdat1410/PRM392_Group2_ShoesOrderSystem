@@ -26,6 +26,12 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
+
+    packagingOptions {
+        exclude 'META-INF/NOTICE.md'
+        exclude 'META-INF/LICENSE.md'
+    }
+
 }
 
 dependencies {
@@ -38,9 +44,15 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.36'
     implementation "androidx.room:room-runtime:2.6.1"
     annotationProcessor "androidx.room:room-compiler:2.6.1"
-    androidTestImplementation "androidx.room:room-testing:2.6.1"
     implementation 'com.squareup.picasso:picasso:2.8'
+    androidTestImplementation "androidx.room:room-testing:2.6.1"
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.sun.mail:android-mail:1.6.7'
+    implementation 'com.sun.mail:android-activation:1.6.7'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
+    implementation libs.material
+
 }

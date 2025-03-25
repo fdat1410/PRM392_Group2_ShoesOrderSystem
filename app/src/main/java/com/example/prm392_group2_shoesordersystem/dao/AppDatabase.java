@@ -15,15 +15,23 @@ import com.example.prm392_group2_shoesordersystem.entity.Shoes;
 import com.example.prm392_group2_shoesordersystem.entity.Shoes_Feedback;
 import com.example.prm392_group2_shoesordersystem.entity.Size;
 
-@Database(entities = {Account.class, Category.class, Shoes.class, Cart.class, Order.class, Order_detail.class, Shoes_Feedback.class, Size.class}, version = 1, exportSchema = false)
+@Database(entities = {Account.class, Category.class, Shoes.class, Cart.class, Order.class, Order_detail.class, Shoes_Feedback.class, Size.class}, version = 2, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase instance;
+
+    public abstract AccountDAO accountDao();
     public abstract ShoesDAO shoesDAO();
     public abstract SizeDAO sizeDAO();
-    public abstract AccountDAO accountDAO();
-    public abstract OrderDAO orderDAO();
     public abstract CategoryDAO categoryDAO();
+    public abstract OrderDAO orderDAO();
     public abstract Order_detailDAO orderDetailDAO();
+
+    public abstract FeedbackDAO feedbackDao();
+
+    public abstract CartDAO cartDAO();
+    public abstract BestSellerDAO bestSellerDAO();
+
+
     public static synchronized AppDatabase getInstance(Context context) {
         if (instance == null) {
             instance = Room.databaseBuilder(context.getApplicationContext(),

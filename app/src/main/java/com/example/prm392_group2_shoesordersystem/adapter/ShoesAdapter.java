@@ -17,9 +17,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prm392_group2_shoesordersystem.R;
-import com.example.prm392_group2_shoesordersystem.repository.ShoesRepository;
-import com.example.prm392_group2_shoesordersystem.service.UpdateShoesInformationActivity;
 import com.example.prm392_group2_shoesordersystem.entity.Shoes;
+import com.example.prm392_group2_shoesordersystem.repository.ShoesRepository;
+import com.example.prm392_group2_shoesordersystem.service.seller.UpdateShoesInformationActivity;
 
 import java.util.List;
 
@@ -46,12 +46,13 @@ public class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ViewHolder>{
         holder.tvId.setText(String.valueOf(position+1));
         holder.tvName.setText(shoesList.get(position).shoes_name);
         holder.tvPrice.setText("$"+String.valueOf(shoesList.get(position).price));
-        if(shoesList.get(position).shoes_status == 0) {
-            holder.tvStatus.setText("Unactive");
-            holder.tvStatus.setTextColor(Color.RED);
-        } else {
+
+        if (shoesList.get(position).shoes_status == 1) {
             holder.tvStatus.setText("Active");
-            holder.tvStatus.setTextColor(Color.GREEN);
+            holder.tvStatus.setSelected(true);  // Áp dụng màu xanh
+        } else {
+            holder.tvStatus.setText("UnActive");
+            holder.tvStatus.setSelected(false); // Áp dụng màu vàng
         }
 
         holder.btnDelete.setOnClickListener(v -> {
@@ -94,7 +95,7 @@ public class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ViewHolder>{
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvId, tvName, tvPrice, tvStatus;
         ImageView img;
-        Button btnUpdate, btnDelete;
+        ImageView btnUpdate, btnDelete;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
